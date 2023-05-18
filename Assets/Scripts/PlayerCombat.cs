@@ -45,7 +45,8 @@ public class PlayerCombat : MonoBehaviour
         // Calculate damage
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("Hit: " + enemy.name);
+            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            enemyHealth.takeDamage(6);
         }
     }
 }

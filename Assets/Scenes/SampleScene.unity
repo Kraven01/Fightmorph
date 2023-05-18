@@ -1095,6 +1095,7 @@ GameObject:
   - component: {fileID: 298408991}
   - component: {fileID: 298408993}
   - component: {fileID: 298408994}
+  - component: {fileID: 298408995}
   m_Layer: 10
   m_Name: Enemy_Right
   m_TagString: Untagged
@@ -1226,7 +1227,7 @@ Animator:
   m_GameObject: {fileID: 298408989}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6354faecbf00ad342b42b812732e8862, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3ab7f06b87202b943988e98b5fe23c4d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1237,6 +1238,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &298408995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298408989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338251b6f119bd844af408ee6eac0235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 298408994}
 --- !u!1 &307264931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1295,7 @@ GameObject:
   - component: {fileID: 516981926}
   - component: {fileID: 516981925}
   - component: {fileID: 516981928}
+  - component: {fileID: 516981929}
   m_Layer: 10
   m_Name: Enemy_Left
   m_TagString: Untagged
@@ -1412,7 +1427,7 @@ Animator:
   m_GameObject: {fileID: 516981923}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6354faecbf00ad342b42b812732e8862, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3ab7f06b87202b943988e98b5fe23c4d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1423,6 +1438,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &516981929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516981923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338251b6f119bd844af408ee6eac0235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 516981928}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1698,7 @@ GameObject:
   - component: {fileID: 1385575683}
   - component: {fileID: 1385575682}
   - component: {fileID: 1385575681}
+  - component: {fileID: 1385575685}
   m_Layer: 0
   m_Name: KnightPlayer
   m_TagString: Untagged
@@ -1850,6 +1879,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1385575685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385575677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc44ef0319de8a4bb85671d46e4e309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1385575680}
 --- !u!1 &1404961756
 GameObject:
   m_ObjectHideFlags: 0

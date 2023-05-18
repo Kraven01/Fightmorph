@@ -25,11 +25,20 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("movement_X", movement.x);
         animator.SetFloat("movement_Y", movement.y);
-        animator.SetFloat("speed", movement.sqrMagnitude);;
+        animator.SetFloat("speed", movement.sqrMagnitude);
+
     }
 
     void FixedUpdate()
     {
+        if (movement.x == 1)
+        {
+            GetComponent<PlayerCombat>().right = true;
+        }
+        else if (movement.x == -1)
+        {
+            GetComponent<PlayerCombat>().right = false;
+        }
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }

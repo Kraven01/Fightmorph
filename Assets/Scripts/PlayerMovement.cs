@@ -25,7 +25,12 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("movement_X", movement.x);
         animator.SetFloat("movement_Y", movement.y);
-        animator.SetFloat("speed", movement.sqrMagnitude);;
+        animator.SetFloat("speed", movement.sqrMagnitude);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("Attack");
+        }
     }
 
     void FixedUpdate()

@@ -6,6 +6,7 @@ public class EnemyMovement : Movement
 {
     Transform target;
     Transform currentObject;
+    public float viewRange = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,8 @@ public class EnemyMovement : Movement
     // Update is called once per frame
     public override void Update()
     {
-        if (target && !dead)
+        float distanceToPlayer = Vector3.Distance(transform.position, target.position);
+        if (target && !dead && distanceToPlayer <=viewRange)
         {
             Vector3 direction = (target.position - currentObject.position).normalized;
             movement = direction;
@@ -34,4 +36,5 @@ public class EnemyMovement : Movement
             base.FixedUpdate();
         }
     }
+
 }

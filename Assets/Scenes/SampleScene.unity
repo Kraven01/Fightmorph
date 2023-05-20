@@ -1112,7 +1112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298408989}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.9, y: 1.4, z: -1.3427579}
+  m_LocalPosition: {x: 4.9, y: 1.44, z: -1.3427579}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1268,6 +1268,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   animator: {fileID: 0}
   movement: {x: 0, y: 0}
+  dead: 0
+  viewRange: 5
 --- !u!1 &307264931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,6 +1315,7 @@ GameObject:
   - component: {fileID: 516981925}
   - component: {fileID: 516981928}
   - component: {fileID: 516981929}
+  - component: {fileID: 516981930}
   m_Layer: 10
   m_Name: Enemy_Left
   m_TagString: Untagged
@@ -1468,6 +1471,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 516981928}
+--- !u!114 &516981930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516981923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07922264e39e9f74082f6519e28d85ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  movement: {x: 0, y: 0}
+  dead: 0
+  viewRange: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,6 +1758,7 @@ MonoBehaviour:
   rb: {fileID: 999456723}
   animator: {fileID: 1385575680}
   movement: {x: 0, y: 0}
+  dead: 0
 --- !u!4 &999456725
 Transform:
   m_ObjectHideFlags: 0
@@ -1831,7 +1853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385575677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1271743, y: 0.30028978, z: 0.3360369}
+  m_LocalPosition: {x: 0.1271743, y: -11.7, z: 0.3360369}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1950,6 +1972,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   animator: {fileID: 0}
   movement: {x: 0, y: 0}
+  dead: 0
 --- !u!61 &1385575683
 BoxCollider2D:
   m_ObjectHideFlags: 0

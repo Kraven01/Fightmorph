@@ -1096,6 +1096,7 @@ GameObject:
   - component: {fileID: 298408993}
   - component: {fileID: 298408994}
   - component: {fileID: 298408995}
+  - component: {fileID: 298408996}
   m_Layer: 10
   m_Name: Enemy_Right
   m_TagString: Untagged
@@ -1187,7 +1188,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 84ce2f114ad12bd4ebafc77060220324, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 5.12, y: 2.56}
@@ -1251,6 +1252,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 298408994}
+--- !u!114 &298408996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298408989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07922264e39e9f74082f6519e28d85ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  movement: {x: 0, y: 0}
 --- !u!1 &307264931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,6 +1736,7 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 999456723}
   animator: {fileID: 1385575680}
+  movement: {x: 0, y: 0}
 --- !u!4 &999456725
 Transform:
   m_ObjectHideFlags: 0
@@ -1929,8 +1947,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rb: {fileID: 1385575684}
-  animator: {fileID: 1385575680}
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  movement: {x: 0, y: 0}
 --- !u!61 &1385575683
 BoxCollider2D:
   m_ObjectHideFlags: 0

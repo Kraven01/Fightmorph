@@ -9,6 +9,7 @@ public abstract class Health : MonoBehaviour, IHealth
     protected BoxCollider2D boxCollider;
 
     public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public abstract class Health : MonoBehaviour, IHealth
         {
             die();
         }
-        else 
+        else
         {
             animator.SetTrigger("hurt");
         }
@@ -38,7 +39,9 @@ public abstract class Health : MonoBehaviour, IHealth
     public virtual void die()
     {
         animator.SetTrigger("death");
+        GetComponent<Movement>().dead = true;
+        GetComponent<Movement>().movement = new Vector2(0f, 0f);
         boxCollider.enabled = false;
-        Destroy(boxCollider.gameObject,10f);
+        Destroy(boxCollider.gameObject, 10f);
     }
 }

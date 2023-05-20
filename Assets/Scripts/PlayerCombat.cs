@@ -26,6 +26,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            GetComponent<AudioPlayer>().PlayAttackSound();
             Attack();
         }
     }

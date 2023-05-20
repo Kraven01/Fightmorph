@@ -6,12 +6,17 @@ public abstract class Health : MonoBehaviour, IHealth
 {
     protected int maxHealth = 10;
     protected int currentHealth;
+    protected BoxCollider2D boxCollider;
+
+    public GameObject damageNumberPrefab;
 
     public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     public virtual void takeDamage(int damage)
@@ -22,7 +27,7 @@ public abstract class Health : MonoBehaviour, IHealth
         {
             die();
         }
-        else 
+        else
         {
             animator.SetTrigger("hurt");
         }
@@ -36,5 +41,9 @@ public abstract class Health : MonoBehaviour, IHealth
     public virtual void die()
     {
         animator.SetTrigger("death");
+        GetComponent<Movement>().dead = true;
+        GetComponent<Movement>().movement = new Vector2(0f, 0f);
+        boxCollider.enabled = false;
+        Destroy(boxCollider.gameObject, 10f);
     }
 }

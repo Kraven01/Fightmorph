@@ -8,6 +8,8 @@ public abstract class Health : MonoBehaviour, IHealth
     protected int currentHealth;
     protected BoxCollider2D boxCollider;
 
+    public GameObject damageNumberPrefab;
+
     public Animator animator;
 
     // Start is called before the first frame update

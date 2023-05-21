@@ -30,6 +30,14 @@ public abstract class Movement : MonoBehaviour
 
     public virtual void FixedUpdate()
     {
+         if (movement.x > 0)
+        {
+            GetComponent<Combat>().right = true;
+        }
+        else if (movement.x < 0)
+        {
+            GetComponent<Combat>().right = false;
+        }
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }

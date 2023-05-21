@@ -20,6 +20,7 @@ public abstract class Combat : MonoBehaviour
     public virtual void Start()
     {
         attackPoint = transform.Find("attackPoint");
+        animator = GetComponent<Animator>();
     }
     
     // Update is called once per frame

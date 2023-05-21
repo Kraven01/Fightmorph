@@ -2,25 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCombat : MonoBehaviour
+public class EnemyCombat : Combat
 {
-
-    public Transform attackPoint;
-    public float range  = 2f;
+    public int attackDamage = 3;
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        
+        base.Start();
+        targetLayer = LayerMask.GetMask("Player");
+        cooldown = 2f;
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        
+        if (canAttack)
+        {
+            GetComponent<AudioPlayer>().PlayAttackSound();
+            StartCoroutine(Attack());
+        }
     }
 
-    private void OnDrawGizmos()
+    public override void dealDamage(Collider2D target)
     {
-        Gizmos.DrawWireSphere(attackPoint.position, range);
+        PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
+        playerHealth.takeDamage(attackDamage);
     }
+
+    
 }

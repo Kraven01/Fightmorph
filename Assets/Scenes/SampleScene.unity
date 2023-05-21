@@ -1242,6 +1242,8 @@ GameObject:
   - component: {fileID: 298408995}
   - component: {fileID: 298408996}
   - component: {fileID: 298408997}
+  - component: {fileID: 298408999}
+  - component: {fileID: 298408998}
   m_Layer: 10
   m_Name: Enemy_Right
   m_TagString: Untagged
@@ -1398,6 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338251b6f119bd844af408ee6eac0235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
   healthbar: {fileID: 0}
   damageNumberPrefab: {fileID: 409067859033820506, guid: c841e45d97cf8b542be3afdc753ab7dd,
     type: 3}
@@ -1432,8 +1435,125 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2db166f908ada47a4052918caeaeb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 676669854}
-  range: 1
+  animator: {fileID: 0}
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  right: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  cooldown: 0
+  canAttack: 1
+  attackDamage: 3
+--- !u!114 &298408998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298408989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78eb762ae6ec16b4f898bb8d7b147d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound: {fileID: 8300000, guid: 8c20d5628407f6b41be44a47542c636a, type: 3}
+--- !u!82 &298408999
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298408989}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &307264931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 307264932}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: attackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1476,7 +1596,7 @@ GameObject:
   - component: {fileID: 331966137}
   - component: {fileID: 331966139}
   - component: {fileID: 331966138}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1812,6 +1932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338251b6f119bd844af408ee6eac0235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
   healthbar: {fileID: 0}
   damageNumberPrefab: {fileID: 409067859033820506, guid: c841e45d97cf8b542be3afdc753ab7dd,
     type: 3}
@@ -1846,7 +1967,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2025,7 +2146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 676669854}
   m_Layer: 10
-  m_Name: AttackPoint
+  m_Name: attackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2209,7 +2330,7 @@ GameObject:
   - component: {fileID: 994878326}
   - component: {fileID: 994878328}
   - component: {fileID: 994878327}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2392,6 +2513,8 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  cooldown: 1
+  canAttack: 1
   attackDamage: 6
 --- !u!1 &1267868680
 GameObject:
@@ -2515,7 +2638,7 @@ GameObject:
   - component: {fileID: 1385575685}
   - component: {fileID: 1385575687}
   - component: {fileID: 1385575686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: KnightPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2632,6 +2755,8 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  cooldown: 1
+  canAttack: 1
   attackDamage: 6
 --- !u!114 &1385575682
 MonoBehaviour:
@@ -2709,6 +2834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc44ef0319de8a4bb85671d46e4e309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
   healthbar: {fileID: 0}
   damageNumberPrefab: {fileID: 5329751676550406564}
   animator: {fileID: 1385575680}
@@ -3841,7 +3967,7 @@ GameObject:
   - component: {fileID: 1428809306}
   - component: {fileID: 1428809307}
   - component: {fileID: 1428809308}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4228,7 +4354,7 @@ GameObject:
   - component: {fileID: 1942206751}
   - component: {fileID: 1942206750}
   - component: {fileID: 1942206749}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: PlayerHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9189,7 +9315,7 @@ GameObject:
   - component: {fileID: 2051600410}
   - component: {fileID: 2051600412}
   - component: {fileID: 2051600411}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}

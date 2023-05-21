@@ -18,17 +18,4 @@ public class PlayerMovement : Movement
             base.Update();
         }
     }
-
-    public override void FixedUpdate()
-    {
-        if (movement.x == 1)
-        {
-            GetComponent<PlayerCombat>().right = true;
-        }
-        else if (movement.x == -1)
-        {
-            GetComponent<PlayerCombat>().right = false;
-        }
-        base.FixedUpdate();
-    }
 }

@@ -225,7 +225,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1241,6 +1241,7 @@ GameObject:
   - component: {fileID: 298408994}
   - component: {fileID: 298408995}
   - component: {fileID: 298408996}
+  - component: {fileID: 298408997}
   m_Layer: 10
   m_Name: Enemy_Right
   m_TagString: Untagged
@@ -1260,6 +1261,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 676669854}
   - {fileID: 496328809}
   m_Father: {fileID: 1983478077}
   m_RootOrder: 0
@@ -1418,6 +1420,20 @@ MonoBehaviour:
   movement: {x: 0, y: 0}
   dead: 0
   viewRange: 5
+--- !u!114 &298408997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298408989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2db166f908ada47a4052918caeaeb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 676669854}
+  range: 1
 --- !u!1 &307264931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,7 +1444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 307264932}
   m_Layer: 0
-  m_Name: Attackpoint_Right
+  m_Name: attackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1441,13 +1457,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307264931}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2, y: -0.73, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1385575678}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &331966136
 GameObject:
@@ -1558,7 +1574,7 @@ RectTransform:
   m_Children:
   - {fileID: 1786376770}
   m_Father: {fileID: 298408990}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1647,7 +1663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &516981924
 Transform:
   m_ObjectHideFlags: 0
@@ -1901,7 +1917,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1385575678}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &519420033
 AudioSource:
@@ -1910,7 +1926,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6a429b1aa96573044a1a00296a0ac8d6, type: 3}
@@ -1999,7 +2015,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &704986587
+--- !u!1 &676669853
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2007,27 +2023,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 704986588}
-  m_Layer: 0
-  m_Name: Attackpoint_Left
+  - component: {fileID: 676669854}
+  m_Layer: 10
+  m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &704986588
+--- !u!4 &676669854
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704986587}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.23, y: -0.78, z: 0}
+  m_GameObject: {fileID: 676669853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.95, y: -0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1385575678}
+  m_Father: {fileID: 298408990}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &802615124
@@ -2370,13 +2386,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1385575680}
-  attackPointRight: {fileID: 0}
-  attackPointLeft: {fileID: 0}
+  attackPoint: {fileID: 0}
   attackRange: 0.5
   right: 1
-  enemyLayers:
+  targetLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
+  attackDamage: 6
 --- !u!1 &1267868680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,7 +2534,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 704986588}
   - {fileID: 519420032}
   - {fileID: 307264932}
   - {fileID: 1942206752}
@@ -2611,13 +2626,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1385575680}
-  attackPointRight: {fileID: 307264932}
-  attackPointLeft: {fileID: 704986588}
+  attackPoint: {fileID: 0}
   attackRange: 0.5
   right: 1
-  enemyLayers:
+  targetLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
+  attackDamage: 6
 --- !u!114 &1385575682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4295,7 +4310,7 @@ RectTransform:
   m_Children:
   - {fileID: 1428809306}
   m_Father: {fileID: 1385575678}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

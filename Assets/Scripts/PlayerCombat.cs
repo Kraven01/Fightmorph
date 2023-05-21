@@ -2,27 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour
+public class PlayerCombat : Combat
 {
+    public int attackDamage = 6;
 
-    public Animator animator;
-
-    public Transform attackPointRight;
-    public Transform attackPointLeft;
-    public float attackRange = 0.5f;
-
-    public bool right = true;
-
-    public LayerMask enemyLayers;
-    // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        
-    
+        base.Start();
+        targetLayer = LayerMask.GetMask("Enemies");
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -31,23 +22,9 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    void Attack()
+    public override void dealDamage(Collider2D target)
     {
-        // start attack animation
-        animator.SetTrigger("attack");
-        Collider2D[] hitEnemies;
-        // Compute enemies in range
-        if (right){
-            hitEnemies =  Physics2D.OverlapCircleAll(attackPointRight.position, attackRange, enemyLayers);
-        } else {
-            hitEnemies =  Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, enemyLayers);
-        }
-
-        // Calculate damage
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-            enemyHealth.takeDamage(6);
-        }
+        EnemyHealth enemyHealth = target.GetComponent<EnemyHealth>();
+        enemyHealth.takeDamage(attackDamage);
     }
 }

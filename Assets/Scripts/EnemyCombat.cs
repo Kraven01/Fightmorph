@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
+
+    public Transform attackPoint;
+    public float range  = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,10 @@ public class EnemyCombat : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, range);
     }
 }

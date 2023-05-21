@@ -13,6 +13,7 @@ public abstract class Health : MonoBehaviour, IHealth
     public GameObject damageNumberPrefab;
 
     public Animator animator;
+    public Color damageNumberColor;
 
     public virtual void Awake()
     {
@@ -24,6 +25,14 @@ public abstract class Health : MonoBehaviour, IHealth
 
     public virtual void takeDamage(int damage)
     {
+        GameObject damageNumberObj = Instantiate(
+            damageNumberPrefab,
+            transform.position,
+            Quaternion.identity
+        );
+        DamageNumber damageNumber = damageNumberObj.GetComponent<DamageNumber>();
+        damageNumber.SetDamageNumber(damage);
+        damageNumber.SetColor(damageNumberColor);
         currentHealth = Math.Max(currentHealth-damage,0);
         healthbar.SetHealth(currentHealth);
 

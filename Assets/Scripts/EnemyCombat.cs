@@ -6,7 +6,7 @@ public class EnemyCombat : Combat
 {
     Transform target;
     public int attackDamage = 3;
-    float attackTriggerRange = 1.25f;
+    float attackTriggerRange = 1.5f;
     // Start is called before the first frame update
     public override void Start()
     {

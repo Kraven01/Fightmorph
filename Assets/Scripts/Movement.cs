@@ -23,8 +23,8 @@ public abstract class Movement : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        animator.SetFloat("movement_X", movement.x);
-        animator.SetFloat("movement_Y", movement.y);
+        //animator.SetFloat("movement_X", movement.x);
+        //animator.SetFloat("movement_Y", movement.y);
         animator.SetFloat("speed", movement.sqrMagnitude);
     }
 
@@ -33,10 +33,12 @@ public abstract class Movement : MonoBehaviour
          if (movement.x > 0)
         {
             GetComponent<Combat>().right = true;
+            animator.SetBool("right",  true);
         }
         else if (movement.x < 0)
         {
             GetComponent<Combat>().right = false;
+            animator.SetBool("right",  false);
         }
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }

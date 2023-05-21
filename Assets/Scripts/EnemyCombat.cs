@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class EnemyCombat : Combat
 {
+    Transform target;
     public int attackDamage = 3;
+    float attackTriggerRange = 1.25f;
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
         targetLayer = LayerMask.GetMask("Player");
+        target = GameObject.Find("KnightPlayer").transform;
         cooldown = 2f;
     }
 
     // Update is called once per frame
     public override void Update()
     {
-        if (canAttack)
+        float distanceToPlayer = Vector3.Distance(transform.position, target.position);
+        if (canAttack && distanceToPlayer <=attackTriggerRange)
         {
             GetComponent<AudioPlayer>().PlayAttackSound();
             StartCoroutine(Attack());

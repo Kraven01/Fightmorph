@@ -5,7 +5,7 @@ using System;
 
 public abstract class Health : MonoBehaviour, IHealth
 {
-    protected int maxHealth = 10;
+    public int maxHealth;
     protected int currentHealth;
     protected BoxCollider2D boxCollider;
     public HealthBar healthbar;
@@ -14,8 +14,7 @@ public abstract class Health : MonoBehaviour, IHealth
 
     public Animator animator;
 
-    // Start is called before the first frame update
-    void Awake()
+    public virtual void Awake()
     {
         currentHealth = maxHealth;
         boxCollider = GetComponent<BoxCollider2D>();

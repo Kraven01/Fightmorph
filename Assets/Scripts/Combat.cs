@@ -14,6 +14,9 @@ public abstract class Combat : MonoBehaviour
 
     public LayerMask targetLayer;
 
+    public float cooldown;
+    public bool canAttack = true;
+
     public virtual void Start()
     {
         attackPoint = transform.Find("attackPoint");
@@ -22,8 +25,9 @@ public abstract class Combat : MonoBehaviour
     // Update is called once per frame
     public abstract void Update();
 
-    public virtual void Attack()
+    public virtual  IEnumerator Attack()
     {
+        canAttack = false;
         // start attack animation
         animator.SetTrigger("attack");
         Collider2D[] hitTargets;
@@ -43,6 +47,9 @@ public abstract class Combat : MonoBehaviour
         {
             dealDamage(target);
         }
+
+        yield return new WaitForSeconds(cooldown);
+        canAttack = true;
     }
 
     public abstract void dealDamage(Collider2D target);

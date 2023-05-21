@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
+
+    public override void Awake()
+    {
+        maxHealth = 200;
+        base.Awake();
+    }
     public override void takeDamage(int damage)
     {
         GameObject damageNumberObj = Instantiate(

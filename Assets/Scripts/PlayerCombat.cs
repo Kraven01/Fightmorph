@@ -10,15 +10,16 @@ public class PlayerCombat : Combat
     {
         base.Start();
         targetLayer = LayerMask.GetMask("Enemies");
+        cooldown = 1f;
     }
 
     // Update is called once per frame
     public override void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (canAttack && Input.GetMouseButtonDown(0))
         {
             GetComponent<AudioPlayer>().PlayAttackSound();
-            Attack();
+            StartCoroutine(Attack());
         }
     }
 

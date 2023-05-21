@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : Health
 {
-    
+    public override void Awake()
+    {
+        maxHealth = 10;
+        base.Awake();
+    }
 }

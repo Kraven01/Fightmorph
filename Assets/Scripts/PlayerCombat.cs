@@ -11,6 +11,8 @@ public class PlayerCombat : Combat
         base.Start();
         targetLayer = LayerMask.GetMask("Enemies");
         cooldown = 1f;
+        xRange = 1.2f;
+        yRange = -0.5f;
     }
 
     // Update is called once per frame
@@ -27,5 +29,18 @@ public class PlayerCombat : Combat
     {
         EnemyHealth enemyHealth = target.GetComponent<EnemyHealth>();
         enemyHealth.takeDamage(attackDamage);
+    }
+
+    public override Collider2D[] computeTargets()
+    {
+        if (right){
+            Vector3 parentPos = attackPoint.parent.position + new Vector3(xRange,yRange,0f);
+            attackPoint.position = parentPos;
+            return Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayer);
+        } else {
+            Vector3 parentPos = attackPoint.parent.position + new Vector3(-xRange,yRange,0f);
+            attackPoint.position = parentPos;
+            return Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayer);
+        }
     }
 }

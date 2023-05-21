@@ -6,7 +6,7 @@ public class EnemyCombat : Combat
 {
     Transform target;
     public int attackDamage = 3;
-    float attackTriggerRange = 1.5f;
+    float attackTriggerRange = 3f;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -14,6 +14,8 @@ public class EnemyCombat : Combat
         targetLayer = LayerMask.GetMask("Player");
         target = GameObject.Find("KnightPlayer").transform;
         cooldown = 2f;
+        xRange = 1.2f;
+        yRange = -0.5f;
     }
 
     // Update is called once per frame
@@ -31,6 +33,12 @@ public class EnemyCombat : Combat
     {
         PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
         playerHealth.takeDamage(attackDamage);
+    }
+
+    public override Collider2D[] computeTargets()
+    {
+        return Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayer);
+        
     }
 
     

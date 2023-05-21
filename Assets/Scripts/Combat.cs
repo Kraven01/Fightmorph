@@ -17,6 +17,9 @@ public abstract class Combat : MonoBehaviour
     public float cooldown;
     public bool canAttack = true;
 
+    public float xRange;
+    public float yRange;
+
     public virtual void Start()
     {
         attackPoint = transform.Find("attackPoint");
@@ -33,15 +36,7 @@ public abstract class Combat : MonoBehaviour
         animator.SetTrigger("attack");
         Collider2D[] hitTargets;
         // Compute enemies in range
-        if (right){
-            Vector3 parentPos = attackPoint.parent.position + new Vector3(1.2f,-0.5f,0f);
-            attackPoint.position = parentPos;
-            hitTargets =  Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayer);
-        } else {
-            Vector3 parentPos = attackPoint.parent.position + new Vector3(-1.2f,-0.5f,0f);
-            attackPoint.position = parentPos;
-            hitTargets =  Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayer);
-        }
+        hitTargets = computeTargets();
 
         // Calculate damage
         foreach (Collider2D target in hitTargets)
@@ -54,4 +49,11 @@ public abstract class Combat : MonoBehaviour
     }
 
     public abstract void dealDamage(Collider2D target);
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public abstract Collider2D[] computeTargets();
 }

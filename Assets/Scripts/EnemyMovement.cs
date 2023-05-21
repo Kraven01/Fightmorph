@@ -6,25 +6,32 @@ public class EnemyMovement : Movement
 {
     Transform target;
     Transform currentObject;
-    public float viewRange = 3f;
+    public float viewRange = 20f;
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         target = GameObject.Find("KnightPlayer").transform;
         currentObject = GetComponent<Transform>();
         moveSpeed = 2f;
+        rotationValue = 180f;
+        flip = 0f;
     }
 
     // Update is called once per frame
     public override void Update()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
-        if (target && !dead && distanceToPlayer <=viewRange)
+        if (target && !dead && distanceToPlayer <= viewRange)
         {
             Vector3 direction = (target.position - currentObject.position).normalized;
             movement = direction;
             base.Update();
+        }
+        else if (distanceToPlayer > viewRange)
+        {
+            animator.SetFloat("speed", 0);
+            movement = new Vector2(0f, 0f);
         }
     }
 
@@ -32,9 +39,15 @@ public class EnemyMovement : Movement
     {
         if (target)
         {
-            //rb.velocity = movement* moveSpeed;
+            if (movement.x > 0)
+            {
+                transform.rotation = Quaternion.Euler(0f, 0f + flip, 0f);
+            }
+            else if (movement.x < 0)
+            {
+                transform.rotation = Quaternion.Euler(0f, rotationValue + flip, 0f);
+            }
             base.FixedUpdate();
         }
     }
-
 }

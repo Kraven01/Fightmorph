@@ -18,6 +18,7 @@ public abstract class Health : MonoBehaviour, IHealth
     public virtual void Awake()
     {
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         healthbar = GetComponentInChildren<HealthBar>();
         healthbar.SetMaxHealth(maxHealth);

@@ -16,9 +16,11 @@ public abstract class Combat : MonoBehaviour
 
     public float cooldown;
     public bool canAttack = true;
+    public bool dead = false;
 
     public float xRange;
     public float yRange;
+
 
     public virtual void Start()
     {
@@ -50,10 +52,10 @@ public abstract class Combat : MonoBehaviour
 
     public abstract void dealDamage(Collider2D target);
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
+    //private void OnDrawGizmos()
+    //{
+      //  Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    //}
 
     public abstract Collider2D[] computeTargets();
 }

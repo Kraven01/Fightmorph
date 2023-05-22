@@ -22,7 +22,7 @@ public class EnemyCombat : Combat
     public override void Update()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
-        if (canAttack && distanceToPlayer <=attackTriggerRange)
+        if (canAttack && !dead && distanceToPlayer <=attackTriggerRange)
         {
             GetComponent<AudioPlayer>().PlayAttackSound();
             StartCoroutine(Attack());

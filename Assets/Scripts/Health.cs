@@ -36,7 +36,6 @@ public abstract class Health : MonoBehaviour, IHealth
         damageNumber.SetColor(damageNumberColor);
         currentHealth = Math.Max(currentHealth-damage,0);
         healthbar.SetHealth(currentHealth);
-
         if (currentHealth <= 0)
         {
             die();
@@ -56,6 +55,7 @@ public abstract class Health : MonoBehaviour, IHealth
     {
         animator.SetTrigger("death");
         GetComponent<Movement>().dead = true;
+        GetComponent<Combat>().dead = true;
         GetComponent<Movement>().movement = new Vector2(0f, 0f);
         boxCollider.enabled = false;
         Destroy(boxCollider.gameObject, 10f);

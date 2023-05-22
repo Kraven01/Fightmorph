@@ -6,13 +6,18 @@ public class EnemyMovement : Movement
 {
     Transform target;
     Transform currentObject;
-    public float viewRange = 20f;
+    public float viewRange = 15f;
+
+    public Transform healthbarTransform;
+    public RectTransform healthbarRectTransform;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
         target = GameObject.Find("KnightPlayer").transform;
         currentObject = GetComponent<Transform>();
+        healthbarTransform = currentObject.Find("EnemyHealth");
+        healthbarRectTransform = healthbarTransform.GetComponent<RectTransform>();
         moveSpeed = 2f;
         rotationValue = 180f;
         flip = 0f;
@@ -42,10 +47,13 @@ public class EnemyMovement : Movement
             if (movement.x > 0)
             {
                 transform.rotation = Quaternion.Euler(0f, 0f + flip, 0f);
+                healthbarRectTransform.rotation = Quaternion.identity;
+
             }
             else if (movement.x < 0)
             {
                 transform.rotation = Quaternion.Euler(0f, rotationValue + flip, 0f);
+                healthbarRectTransform.rotation = Quaternion.identity;
             }
             base.FixedUpdate();
         }

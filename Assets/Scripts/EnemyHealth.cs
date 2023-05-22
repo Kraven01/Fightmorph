@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    public override void takeDamage(int damage)
+    public override void Awake()
     {
-        GameObject damageNumberObj = Instantiate(
-            damageNumberPrefab,
-            transform.position,
-            Quaternion.identity
-        );
-        DamageNumber damageNumber = damageNumberObj.GetComponent<DamageNumber>();
-        damageNumber.SetDamageNumber(damage);
-        damageNumber.SetColor(Color.white);
-        base.takeDamage(damage);
+        maxHealth = 15;
+        damageNumberColor = Color.white;
+        base.Awake();
     }
+    
 }

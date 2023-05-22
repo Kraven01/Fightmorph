@@ -9,7 +9,9 @@ public abstract class Movement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public Vector2 movement;
+    public float rotationValue;
     public bool dead = false;
+    public float flip;
 
     private void Awake()
     {
@@ -23,8 +25,6 @@ public abstract class Movement : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        animator.SetFloat("movement_X", movement.x);
-        animator.SetFloat("movement_Y", movement.y);
         animator.SetFloat("speed", movement.sqrMagnitude);
     }
 

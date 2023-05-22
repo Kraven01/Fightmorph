@@ -6,7 +6,7 @@ public class EnemyMovement : Movement
 {
     Transform target;
     Transform currentObject;
-    public float viewRange = 15f;
+    public float viewRange;
 
     public Transform healthbarTransform;
     public RectTransform healthbarRectTransform;
@@ -21,6 +21,7 @@ public class EnemyMovement : Movement
         moveSpeed = 2f;
         rotationValue = 180f;
         flip = 0f;
+        viewRange = 7f;
     }
 
     // Update is called once per frame

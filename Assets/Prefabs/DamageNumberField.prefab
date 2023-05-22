@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 409067859033820504}
   - component: {fileID: 409067859033820507}
   - component: {fileID: 409067859033820502}
+  - component: {fileID: 2015840762}
   m_Layer: 0
   m_Name: DamageNumberField
   m_TagString: Untagged
@@ -112,3 +113,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   destroyDelay: 1
+--- !u!210 &2015840762
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409067859033820506}
+  m_Enabled: 1
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
+  m_SortingOrder: 0

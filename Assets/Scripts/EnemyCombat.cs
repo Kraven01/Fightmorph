@@ -6,11 +6,12 @@ public class EnemyCombat : Combat
 {
     Transform target;
     public int attackDamage = 3;
-    float attackTriggerRange = 3f;
+    float attackTriggerRange = 2f;
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
+        attackRange = 0.5f;
         targetLayer = LayerMask.GetMask("Player");
         target = GameObject.Find("KnightPlayer").transform;
         cooldown = 2f;

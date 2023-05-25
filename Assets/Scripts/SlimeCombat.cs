@@ -8,6 +8,7 @@ public class SlimeCombat : EnemyCombat
     public override void Start()
     {
         base.Start();
+        attackRange = 0.65f;
         xRange = 0.5f;
         yRange = 0f;
     }

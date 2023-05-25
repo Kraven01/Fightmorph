@@ -19,7 +19,7 @@ public class PlayerCombat : Combat
     // Update is called once per frame
     public override void Update()
     {
-        if (canAttack && Input.GetMouseButtonDown(0))
+        if (canAttack && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
             GetComponent<AudioPlayer>().PlayAttackSound();
             StartCoroutine(Attack());

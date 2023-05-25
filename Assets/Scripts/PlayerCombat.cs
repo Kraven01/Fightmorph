@@ -11,6 +11,7 @@ public class PlayerCombat : Combat
         base.Start();
         targetLayer = LayerMask.GetMask("Enemies");
         cooldown = 1f;
+        attackRange = 0.5f;
         xRange = 1.2f;
         yRange = -0.5f;
     }

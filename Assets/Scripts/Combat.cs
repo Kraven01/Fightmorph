@@ -8,7 +8,7 @@ public abstract class Combat : MonoBehaviour
     public Animator animator;
 
     public Transform attackPoint;
-    public float attackRange = 0.5f;
+    public float attackRange;
 
     public bool right = true;
 

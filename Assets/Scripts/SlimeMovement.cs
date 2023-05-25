@@ -9,6 +9,7 @@ public class SlimeMovement : EnemyMovement
     {
         base.Start();
         flip = 180f;
+        viewRange= 5f;
     }
 
     

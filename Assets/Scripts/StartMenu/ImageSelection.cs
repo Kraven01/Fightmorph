@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ImageSelection : MonoBehaviour
 {
     [SerializeField]
@@ -69,8 +69,19 @@ public class ImageSelection : MonoBehaviour
 
     private void HandleConfirmationEvent()
     {
-        Debug.Log("Pressed on :" + images[selectedIndex]);
+        if (selectedIndex == 3) Application.Quit();
+        else if (selectedIndex == 1)
+        {
+            Invoke("newGame", 0.25f);
+        }
+        images[selectedIndex].GetComponent<SpriteRenderer>().color = Color.white;
     }
+
+    private void newGame(){
+        SceneManager.LoadScene("IntroLevel");
+    }
+
+
     public void HighlightSelectedImage()
     {
         for (int i = 0; i < images.Length; i++)

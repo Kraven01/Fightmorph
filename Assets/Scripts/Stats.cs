@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class Stats : MonoBehaviour
 {
-    protected int level { get; set; }
-    protected int strength { get; set; }
-    protected int dexterity { get; set; }
-    protected int vitality { get; set; }
-    protected int stamina { get; set; }
+    public int level { get; set; }
+    public int strength { get; set; }
+    public int dexterity { get; set; }
+    public int vitality { get; set; }
+    public int stamina { get; set; }
     protected int maxLevel {get;set;}
 
     public virtual void Start()

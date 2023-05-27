@@ -9,6 +9,7 @@ public abstract class Stats : MonoBehaviour
     protected int dexterity { get; set; }
     protected int vitality { get; set; }
     protected int stamina { get; set; }
+    protected int maxLevel {get;set;}
 
     public virtual void Start()
     {

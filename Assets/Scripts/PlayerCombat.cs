@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerCombat : Combat
 {
-    public int attackDamage = 6;
+    public int attackDamage;
+    public int baseAttackDamage = 6;
+    public PlayerStats playerStats;
 
     public override void Start()
     {
@@ -14,6 +16,8 @@ public class PlayerCombat : Combat
         attackRange = 0.5f;
         xRange = 1.2f;
         yRange = -0.5f;
+        attackDamage = baseAttackDamage;
+        playerStats = GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -34,14 +38,22 @@ public class PlayerCombat : Combat
 
     public override Collider2D[] computeTargets()
     {
-        if (right){
-            Vector3 parentPos = attackPoint.parent.position + new Vector3(xRange,yRange,0f);
+        if (right)
+        {
+            Vector3 parentPos = attackPoint.parent.position + new Vector3(xRange, yRange, 0f);
             attackPoint.position = parentPos;
             return Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayer);
-        } else {
-            Vector3 parentPos = attackPoint.parent.position + new Vector3(-xRange,yRange,0f);
+        }
+        else
+        {
+            Vector3 parentPos = attackPoint.parent.position + new Vector3(-xRange, yRange, 0f);
             attackPoint.position = parentPos;
             return Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayer);
         }
     }
+
+    public void SyncStats()
+     {
+        attackDamage = baseAttackDamage + playerStats.strength;
+      }
 }

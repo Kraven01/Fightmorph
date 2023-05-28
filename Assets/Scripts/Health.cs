@@ -9,6 +9,7 @@ public abstract class Health : MonoBehaviour, IHealth
     protected int currentHealth;
     protected BoxCollider2D boxCollider;
     public HealthBar healthbar;
+    public int baseHealth;
 
     public GameObject damageNumberPrefab;
 

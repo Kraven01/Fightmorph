@@ -15,7 +15,7 @@ public class EnemyHealth : Health
 
     public override void die()
     {
-        playerStats.StartCoroutine(playerStats.AddExperience(2));
+        playerStats.StartCoroutine(playerStats.AddExperience(20));
         base.die();
     }
     

@@ -7,7 +7,7 @@ public class PlayerStats : Stats
 {
     private int XPNeeded;
     public int currentXP;
-    private int[] toLevelUp = new int[10];
+    private int[] toLevelUp = new int[20];
     public Slider xpSlider;
     public TextMesh xpText;
     public TextMesh levelText;

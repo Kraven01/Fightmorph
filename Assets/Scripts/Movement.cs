@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-
     public Rigidbody2D rb;
     public Animator animator;
     public Vector2 movement;

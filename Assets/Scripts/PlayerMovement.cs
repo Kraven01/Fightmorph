@@ -6,11 +6,14 @@ public class PlayerMovement : Movement
 {
     GameObject characterMenu;
     StatSelecter statSelecter;
+    PlayerStats playerStats;
+    public bool canMove = true;
     // Start is called before the first frame update
     void Start() { 
         rotationValue = 0f;
         flip = 0f;
         characterMenu = GameObject.Find("CharacterMenu");
+        playerStats = GetComponent<PlayerStats>();
         statSelecter = characterMenu.GetComponent<StatSelecter>();
         statSelecter.Deactivate();
     }
@@ -22,7 +25,10 @@ public class PlayerMovement : Movement
         if (!dead)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
+            if (canMove)
+            {
             movement.y = Input.GetAxisRaw("Vertical");
+            }
 
             if(Input.GetKeyDown(KeyCode.C))
         {
@@ -53,6 +59,12 @@ public class PlayerMovement : Movement
             animator.SetBool("right",  false);
         }
         base.FixedUpdate();
-        
+    }
+
+    public void SyncStats()
+    {
+        Debug.Log(playerStats);
+        Debug.Log(playerStats.dexterity);
+        moveSpeed = 5f + playerStats.dexterity;
     }
 }

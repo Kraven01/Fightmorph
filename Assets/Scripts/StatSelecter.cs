@@ -1,80 +1,75 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StatSelecter : MonoBehaviour
 {
-    private int strengthLevel;
+    private readonly Color HighlightColor = Color.red;
+    private Canvas canvas;
     private int dexLevel;
-    private int vitalityLevel;
-    private int staminaLevel;
+
+    [SerializeField] private GameObject[] images;
+
     private int level;
+    private PlayerStats playerstats;
     private int pointsToSpend;
-    public TextMesh showPointsToSpend;
-    public TextMesh showStrength;
+    private int selectedIndex;
     public TextMesh showDex;
-    public TextMesh showVitality;
-    public TextMesh showStamina;
     public TextMesh showLevel;
+    public TextMesh showPointsToSpend;
+    public TextMesh showStamina;
+    public TextMesh showStrength;
+    public TextMesh showVitality;
+    private int staminaLevel;
+    private int strengthLevel;
     public bool visible = true;
-    PlayerStats playerstats;
-    Canvas canvas;
+    private int vitalityLevel;
 
-    Color HighlightColor = Color.red;
-
-    [SerializeField]
-    private GameObject[] images;
-    private int selectedIndex = 0;
-
-    void Start()
+    private void Start()
     {
-        playerstats = GameObject.Find("KnightPlayer").GetComponent<PlayerStats>();
-        canvas = GetComponent<Canvas>();
+        this.playerstats = GameObject.Find("KnightPlayer").GetComponent<PlayerStats>();
+        this.canvas = this.GetComponent<Canvas>();
     }
 
     public void Activate()
     {
-        gameObject.SetActive(true);
-        visible = true;
-        GameObject.Find("KnightPlayer").GetComponent<PlayerCombat>().canAttack = false;
-        GameObject.Find("KnightPlayer").GetComponent<PlayerMovement>().canMove = false;
-        syncStats();
+        this.gameObject.SetActive(true);
+        this.visible = true;
+        this.syncStats();
     }
 
     public void Deactivate()
     {
-        gameObject.SetActive(false);
-        GameObject.Find("KnightPlayer").GetComponent<PlayerCombat>().canAttack = true;
-        GameObject.Find("KnightPlayer").GetComponent<PlayerMovement>().canMove = true;
-        GameObject.Find("KnightPlayer").GetComponent<PlayerCombat>().SyncStats();
-        GameObject.Find("KnightPlayer").GetComponent<PlayerHealth>().SyncStats();
-        GameObject.Find("KnightPlayer").GetComponent<PlayerMovement>().SyncStats();
-        
+        this.gameObject.SetActive(false);
 
-        visible = false;
+
+        this.visible = false;
     }
 
     public void syncStats()
     {
-        strengthLevel = playerstats.strength;
-        dexLevel = playerstats.dexterity;
-        vitalityLevel = playerstats.vitality;
-        staminaLevel = playerstats.stamina;
-        level = playerstats.level;
-        pointsToSpend = level - 1 - (strengthLevel + dexLevel + vitalityLevel + staminaLevel);
+        this.strengthLevel = this.playerstats.strength;
+        this.dexLevel = this.playerstats.dexterity;
+        this.vitalityLevel = this.playerstats.vitality;
+        this.staminaLevel = this.playerstats.stamina;
+        this.level = this.playerstats.level;
+        this.pointsToSpend =
+            this.level - 1 - (this.strengthLevel + this.dexLevel + this.vitalityLevel + this.staminaLevel);
 
-        showPointsToSpend.text = (
-            level - 1 - (strengthLevel + dexLevel + vitalityLevel + staminaLevel)
-        ).ToString();
-        showStrength.text = strengthLevel.ToString();
-        showDex.text = dexLevel.ToString();
-        showVitality.text = vitalityLevel.ToString();
-        showStamina.text = staminaLevel.ToString();
-        showLevel.text = level.ToString();
+        this.showPointsToSpend.text =
+            (this.level - 1 - (this.strengthLevel + this.dexLevel + this.vitalityLevel + this.staminaLevel)
+            ).ToString();
+        this.showStrength.text = this.strengthLevel.ToString();
+        this.showDex.text = this.dexLevel.ToString();
+        this.showVitality.text = this.vitalityLevel.ToString();
+        this.showStamina.text = this.staminaLevel.ToString();
+        this.showLevel.text = this.level.ToString();
+
+        GameObject.Find("KnightPlayer").GetComponent<PlayerCombat>().SyncStats();
+        GameObject.Find("KnightPlayer").GetComponent<PlayerHealth>().SyncStats();
+        GameObject.Find("KnightPlayer").GetComponent<PlayerMovement>().SyncStats();
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -83,90 +78,66 @@ public class StatSelecter : MonoBehaviour
 
             if (hit.collider != null)
             {
-                for (int i = 0; i < images.Length; i++)
+                for (int i = 0; i < this.images.Length; i++)
                 {
-                    if (hit.collider.gameObject == images[i])
+                    if (hit.collider.gameObject == this.images[i])
                     {
-                        selectedIndex = i;
-                        HighlightSelectedImage();
-                        HandleConfirmationEvent();
+                        this.selectedIndex = i;
+                        this.HighlightSelectedImage();
+                        this.HandleConfirmationEvent();
                         break;
                     }
                 }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            selectedIndex += Input.GetKeyDown(KeyCode.UpArrow) ? -1 : 1;
-
-            if (selectedIndex < 0)
-                selectedIndex = images.Length - 1;
-            else if (selectedIndex >= images.Length)
-                selectedIndex = 0;
-
-            HighlightSelectedImage();
-        }
-
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
-        {
-            selectedIndex += Input.GetKeyDown(KeyCode.W) ? -1 : 1;
-
-            if (selectedIndex < 0)
-                selectedIndex = images.Length - 1;
-            else if (selectedIndex >= images.Length)
-                selectedIndex = 0;
-
-            HighlightSelectedImage();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
-        {
-            HandleConfirmationEvent();
-        }
     }
 
     private void HandleConfirmationEvent()
     {
-        images[selectedIndex].GetComponent<Image>().color = Color.white;
-        if (selectedIndex == 0)
-            Deactivate();
+        this.images[this.selectedIndex].GetComponent<Image>().color = Color.white;
+        if (this.selectedIndex == 0)
+        {
+            this.Deactivate();
+        }
         else
-            increaseStat();
+        {
+            this.increaseStat();
+        }
     }
 
-    void increaseStat()
+    private void increaseStat()
     {
-        if (pointsToSpend > 0)
+        if (this.pointsToSpend > 0)
         {
-            switch (selectedIndex)
+            switch (this.selectedIndex)
             {
                 case 1:
-                    playerstats.strength += 1;
+                    this.playerstats.strength += 1;
                     break;
                 case 2:
-                    playerstats.dexterity += 1;
+                    this.playerstats.dexterity += 1;
                     break;
                 case 3:
-                    playerstats.vitality += 1;
+                    this.playerstats.vitality += 1;
                     break;
                 case 4:
-                    playerstats.stamina += 1;
+                    this.playerstats.stamina += 1;
                     break;
             }
-            pointsToSpend -=1;
-            syncStats();
+
+            this.pointsToSpend -= 1;
+            this.syncStats();
         }
     }
 
     public void HighlightSelectedImage()
     {
-        for (int i = 0; i < images.Length; i++)
+        for (int i = 0; i < this.images.Length; i++)
         {
-            Image highlightImage = images[i].GetComponent<Image>();
-            if (i == selectedIndex)
+            Image highlightImage = this.images[i].GetComponent<Image>();
+            if (i == this.selectedIndex)
             {
-                highlightImage.color = HighlightColor;
+                highlightImage.color = this.HighlightColor;
             }
             else
             {

@@ -1,22 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Combat : MonoBehaviour
 {
-
     public Animator animator;
 
     public Transform attackPoint;
     public float attackRange;
+    public bool canAttack = true;
+
+    public float cooldown;
+    public bool dead = false;
 
     public bool right = true;
 
     public LayerMask targetLayer;
-
-    public float cooldown;
-    public bool canAttack = true;
-    public bool dead = false;
 
     public float xRange;
     public float yRange;
@@ -24,37 +22,37 @@ public abstract class Combat : MonoBehaviour
 
     public virtual void Start()
     {
-        attackPoint = transform.Find("attackPoint");
-        animator = GetComponent<Animator>();
+        this.attackPoint = this.transform.Find("attackPoint");
+        this.animator = this.GetComponent<Animator>();
     }
-    
+
     // Update is called once per frame
     public abstract void Update();
 
-    public virtual  IEnumerator Attack()
+    public virtual IEnumerator Attack()
     {
-        canAttack = false;
+        this.canAttack = false;
         // start attack animation
-        animator.SetTrigger("attack");
+        this.animator.SetTrigger("attack");
         Collider2D[] hitTargets;
         // Compute enemies in range
-        hitTargets = computeTargets();
+        hitTargets = this.computeTargets();
 
         // Calculate damage
         foreach (Collider2D target in hitTargets)
         {
-            dealDamage(target);
+            this.dealDamage(target);
         }
 
-        yield return new WaitForSeconds(cooldown);
-        canAttack = true;
+        yield return new WaitForSeconds(this.cooldown);
+        this.canAttack = true;
     }
 
     public abstract void dealDamage(Collider2D target);
 
     //private void OnDrawGizmos()
     //{
-      //  Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    //  Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     //}
 
     public abstract Collider2D[] computeTargets();

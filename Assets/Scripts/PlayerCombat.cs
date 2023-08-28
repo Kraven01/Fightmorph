@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombat : Combat
@@ -11,49 +9,49 @@ public class PlayerCombat : Combat
     public override void Start()
     {
         base.Start();
-        targetLayer = LayerMask.GetMask("Enemies");
-        cooldown = 1f;
-        attackRange = 0.5f;
-        xRange = 1.2f;
-        yRange = -0.5f;
-        attackDamage = baseAttackDamage;
-        playerStats = GetComponent<PlayerStats>();
+        this.targetLayer = LayerMask.GetMask("Enemies");
+        this.cooldown = 1f;
+        this.attackRange = 0.5f;
+        this.xRange = 1.2f;
+        this.yRange = -0.5f;
+        this.attackDamage = this.baseAttackDamage;
+        this.playerStats = this.GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
     public override void Update()
     {
-        if (canAttack && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
+        if (this.canAttack && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
-            GetComponent<AudioPlayer>().PlayAttackSound();
-            StartCoroutine(Attack());
+            this.GetComponent<AudioPlayer>().PlayAttackSound();
+            this.StartCoroutine(this.Attack());
         }
     }
 
     public override void dealDamage(Collider2D target)
     {
         EnemyHealth enemyHealth = target.GetComponent<EnemyHealth>();
-        enemyHealth.takeDamage(attackDamage);
+        enemyHealth.takeDamage(this.attackDamage);
     }
 
     public override Collider2D[] computeTargets()
     {
-        if (right)
+        if (this.right)
         {
-            Vector3 parentPos = attackPoint.parent.position + new Vector3(xRange, yRange, 0f);
-            attackPoint.position = parentPos;
-            return Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayer);
+            Vector3 parentPos = this.attackPoint.parent.position + new Vector3(this.xRange, this.yRange, 0f);
+            this.attackPoint.position = parentPos;
+            return Physics2D.OverlapCircleAll(this.attackPoint.position, this.attackRange, this.targetLayer);
         }
         else
         {
-            Vector3 parentPos = attackPoint.parent.position + new Vector3(-xRange, yRange, 0f);
-            attackPoint.position = parentPos;
-            return Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayer);
+            Vector3 parentPos = this.attackPoint.parent.position + new Vector3(-this.xRange, this.yRange, 0f);
+            this.attackPoint.position = parentPos;
+            return Physics2D.OverlapCircleAll(this.attackPoint.position, this.attackRange, this.targetLayer);
         }
     }
 
     public void SyncStats()
-     {
-        attackDamage = baseAttackDamage + playerStats.strength;
-      }
+    {
+        this.attackDamage = this.baseAttackDamage + this.playerStats.strength;
+    }
 }

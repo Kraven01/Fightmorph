@@ -1,51 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageNumber : MonoBehaviour
 {
-    public float moveSpeed = 2f;     // Speed at which the damage number moves up
-    public float destroyDelay = 1f;  // Delay after which the damage number is destroyed
+    public float destroyDelay = 1f; // Delay after which the damage number is destroyed
+    private float destroyTime;
+    public float moveSpeed = 2f; // Speed at which the damage number moves up
+    private Color textColor;
 
     private TextMesh textMesh;
-    private Color textColor;
-    private float destroyTime;
 
     private void Awake()
     {
-        textMesh = GetComponent<TextMesh>();
+        this.textMesh = this.GetComponent<TextMesh>();
     }
 
     private void Start()
     {
-        destroyTime = Time.time + destroyDelay;
+        this.destroyTime = Time.time + this.destroyDelay;
     }
 
     private void Update()
     {
         // Move the damage number upwards
-        transform.position += Vector3.up * moveSpeed * Time.deltaTime;
+        this.transform.position += Vector3.up * this.moveSpeed * Time.deltaTime;
 
         // Fade out the damage number over time
-        float alpha = Mathf.Lerp(1f, 0f, (Time.time - destroyTime) / destroyDelay);
-        textColor = new Color(textColor.r, textColor.g, textColor.b, alpha);
-        textMesh.color = textColor;
+        float alpha = Mathf.Lerp(1f, 0f, (Time.time - this.destroyTime) / this.destroyDelay);
+        this.textColor = new Color(this.textColor.r, this.textColor.g, this.textColor.b, alpha);
+        this.textMesh.color = this.textColor;
 
         // Destroy the damage number after the destroy delay
-        if (Time.time >= destroyTime)
+        if (Time.time >= this.destroyTime)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
     public void SetDamageNumber(int damage)
     {
-        textMesh.text = damage.ToString();
+        this.textMesh.text = damage.ToString();
     }
 
     public void SetColor(Color color)
     {
-        textColor = color;
-        textMesh.color = textColor;
+        this.textColor = color;
+        this.textMesh.color = this.textColor;
     }
 }

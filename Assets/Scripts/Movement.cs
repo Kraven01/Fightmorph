@@ -1,34 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Movement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public Rigidbody2D rb;
     public Animator animator;
-    public Vector2 movement;
-    public float rotationValue;
     public bool dead = false;
     public float flip;
+    public Vector2 movement;
+    public float moveSpeed = 5f;
+    public Rigidbody2D rb;
+    public float rotationValue;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        this.rb = this.GetComponent<Rigidbody2D>();
+        this.animator = this.GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
-    void Start() { }
+    private void Start()
+    {
+    }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        animator.SetFloat("speed", movement.sqrMagnitude);
+        this.animator.SetFloat("speed", this.movement.sqrMagnitude);
     }
 
     public virtual void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        this.rb.MovePosition(this.rb.position + this.movement * this.moveSpeed * Time.fixedDeltaTime);
     }
 }

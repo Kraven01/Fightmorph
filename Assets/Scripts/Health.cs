@@ -1,65 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using UnityEngine;
 
 public abstract class Health : MonoBehaviour, IHealth
 {
-    public int maxHealth;
-    protected int currentHealth;
-    protected BoxCollider2D boxCollider;
-    public HealthBar healthbar;
-    public int baseHealth;
-
-    public GameObject damageNumberPrefab;
-
     public Animator animator;
+    public int baseHealth;
+    protected BoxCollider2D boxCollider;
+    protected int currentHealth;
     public Color damageNumberColor;
 
-    public virtual void Awake()
-    {
-        currentHealth = maxHealth;
-        animator = GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider2D>();
-        healthbar = GetComponentInChildren<HealthBar>();
-        healthbar.SetMaxHealth(maxHealth);
-    }
+    public GameObject damageNumberPrefab;
+    public HealthBar healthbar;
+    public int maxHealth;
 
     public virtual void takeDamage(int damage)
     {
-        GameObject damageNumberObj = Instantiate(
-            damageNumberPrefab,
-            transform.position,
+        GameObject damageNumberObj = Instantiate(this.damageNumberPrefab, this.transform.position,
             Quaternion.identity
         );
         DamageNumber damageNumber = damageNumberObj.GetComponent<DamageNumber>();
         damageNumber.SetDamageNumber(damage);
-        damageNumber.SetColor(damageNumberColor);
-        currentHealth = Math.Max(currentHealth-damage,0);
-        healthbar.SetHealth(currentHealth);
-        if (currentHealth <= 0)
+        damageNumber.SetColor(this.damageNumberColor);
+        this.currentHealth = Math.Max(this.currentHealth - damage, 0);
+        this.healthbar.SetHealth(this.currentHealth);
+        if (this.currentHealth <= 0)
         {
-            die();
+            this.die();
         }
         else
         {
-            animator.SetTrigger("hurt");
+            this.animator.SetTrigger("hurt");
         }
     }
 
     public virtual void heal(int amount)
     {
-        currentHealth += amount;
+        this.currentHealth += amount;
     }
 
     public virtual void die()
     {
-        animator.SetTrigger("death");
-        GetComponent<Movement>().dead = true;
-        GetComponent<Combat>().dead = true;
-        GetComponent<Movement>().movement = new Vector2(0f, 0f);
-        boxCollider.enabled = false;
-        Destroy(boxCollider.gameObject, 10f);
-        Destroy(healthbar.gameObject,1f);
+        this.animator.SetTrigger("death");
+        this.GetComponent<Movement>().dead = true;
+        this.GetComponent<Combat>().dead = true;
+        this.GetComponent<Movement>().movement = new Vector2(0f, 0f);
+        this.boxCollider.enabled = false;
+        Destroy(this.boxCollider.gameObject, 10f);
+        Destroy(this.healthbar.gameObject, 1f);
+    }
+
+    public virtual void Awake()
+    {
+        this.currentHealth = this.maxHealth;
+        this.animator = this.GetComponent<Animator>();
+        this.boxCollider = this.GetComponent<BoxCollider2D>();
+        this.healthbar = this.GetComponentInChildren<HealthBar>();
+        this.healthbar.SetMaxHealth(this.maxHealth);
     }
 }

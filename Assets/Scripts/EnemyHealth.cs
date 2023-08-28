@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    PlayerStats playerStats;
+    private PlayerStats playerStats;
+
     public override void Awake()
     {
-        maxHealth = 15;
-        damageNumberColor = Color.white;
-        playerStats = GameObject.Find("KnightPlayer").GetComponent<PlayerStats>();
+        this.maxHealth = 15;
+        this.damageNumberColor = Color.white;
+        this.playerStats = GameObject.Find("KnightPlayer").GetComponent<PlayerStats>();
         base.Awake();
     }
 
     public override void die()
     {
-        playerStats.StartCoroutine(playerStats.AddExperience(20));
+        this.playerStats.StartCoroutine(this.playerStats.AddExperience(20));
         base.die();
     }
-    
 }

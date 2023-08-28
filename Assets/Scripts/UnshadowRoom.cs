@@ -1,48 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class UnshadowRoom : MonoBehaviour
 {
+    [SerializeField] private int numberOfEnemies;
+
+    [SerializeField] private GameObject slimePrefab;
+
+    [SerializeField] private Transform spawnLocation;
+
     // Start is called before the first frame update
-    [SerializeField]
-    private TilemapRenderer tileMapRenderer;
+    [SerializeField] private TilemapRenderer tileMapRenderer;
 
-    [SerializeField]
-    private GameObject slimePrefab;
-    [SerializeField]
-    private Transform spawnLocation;
-    [SerializeField]
-    private int numberOfEnemies;
-
-    void Start() 
-    { 
-
+    private void Start()
+    {
     }
 
     // Update is called once per frame
-    void Update() { }
-
-    void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        tileMapRenderer = GetComponent<TilemapRenderer>();
-        
-        Instantiate(slimePrefab, spawnLocation.position - new Vector3(3f,0f,0f), spawnLocation.rotation);
-        for (int i = 0; i <numberOfEnemies; i++)
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        this.tileMapRenderer = this.GetComponent<TilemapRenderer>();
+
+        Instantiate(this.slimePrefab, this.spawnLocation.position - new Vector3(3f, 0f, 0f),
+            this.spawnLocation.rotation);
+        for (int i = 0; i < this.numberOfEnemies; i++)
         {
-            Instantiate(slimePrefab, spawnLocation.position - new Vector3(2f*i,0.5f*i,0f), spawnLocation.rotation);
+            Instantiate(this.slimePrefab, this.spawnLocation.position - new Vector3(2f * i, 0.5f * i, 0f),
+                this.spawnLocation.rotation);
         }
-        if (tileMapRenderer == null)
+
+        if (this.tileMapRenderer == null)
         {
-            tileMapRenderer = GetComponentInParent<TilemapRenderer>();
-            tileMapRenderer.enabled = false;
-            Destroy(transform.parent.gameObject);
+            this.tileMapRenderer = this.GetComponentInParent<TilemapRenderer>();
+            this.tileMapRenderer.enabled = false;
+            Destroy(this.transform.parent.gameObject);
         }
         else
         {
-            tileMapRenderer.enabled = false;
-            Destroy(gameObject);
+            this.tileMapRenderer.enabled = false;
+            Destroy(this.gameObject);
         }
     }
 }

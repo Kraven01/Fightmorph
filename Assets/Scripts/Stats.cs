@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Stats : MonoBehaviour
@@ -9,7 +7,7 @@ public abstract class Stats : MonoBehaviour
     public int dexterity { get; set; }
     public int vitality { get; set; }
     public int stamina { get; set; }
-    protected int maxLevel {get;set;}
+    protected int maxLevel { get; set; }
 
     public virtual void Start()
     {
@@ -22,31 +20,31 @@ public abstract class Stats : MonoBehaviour
 
     public virtual void DeployEqually()
     {
-        int totalPoints = level -(strength + dexterity + vitality + stamina);
+        int totalPoints = this.level - (this.strength + this.dexterity + this.vitality + this.stamina);
 
         while (totalPoints > 0)
         {
-            if (strength < level && totalPoints > 0)
+            if (this.strength < this.level && totalPoints > 0)
             {
-                strength++;
+                this.strength++;
                 totalPoints--;
             }
 
-            if (dexterity < level && totalPoints > 0)
+            if (this.dexterity < this.level && totalPoints > 0)
             {
-                dexterity++;
+                this.dexterity++;
                 totalPoints--;
             }
 
-            if (vitality < level && totalPoints > 0)
+            if (this.vitality < this.level && totalPoints > 0)
             {
-                vitality++;
+                this.vitality++;
                 totalPoints--;
             }
 
-            if (stamina < level && totalPoints > 0)
+            if (this.stamina < this.level && totalPoints > 0)
             {
-                stamina++;
+                this.stamina++;
                 totalPoints--;
             }
         }

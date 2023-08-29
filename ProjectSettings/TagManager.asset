@@ -56,3 +56,6 @@ TagManager:
   - name: Hidearea
     uniqueID: 2140458977
     locked: 0
+  - name: UILayer
+    uniqueID: 1456409939
+    locked: 0

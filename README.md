@@ -1,6 +1,15 @@
 # Fightmorp
 A 2D game which is still in production.
 
+## ToDos:
+- Redesign stats
+- smarter enemies
+- Option window
+- Boss room 
+- Boss fight
+- Replace character with naked one -> Boss becomes sword hero
+
+
 ## Used Assets:
 
 - https://github.com/Brackeys/Health-Bar/tree/master

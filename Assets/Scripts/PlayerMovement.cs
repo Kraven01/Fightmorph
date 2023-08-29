@@ -3,8 +3,9 @@ using UnityEngine;
 public class PlayerMovement : Movement
 {
     private GameObject characterMenu;
+    private GameController gameController;
+    [SerializeField] private GameObject optionsMenu;
     private PlayerStats playerStats;
-
     private StatSelecter statSelecter;
 
     // Start is called before the first frame update
@@ -15,6 +16,8 @@ public class PlayerMovement : Movement
         this.characterMenu = GameObject.Find("CharacterMenu");
         this.playerStats = this.GetComponent<PlayerStats>();
         this.statSelecter = this.characterMenu.GetComponent<StatSelecter>();
+        this.gameController = this.GetComponent<GameController>();
+        this.optionsMenu.SetActive(false);
         this.statSelecter.Deactivate();
     }
 
@@ -30,9 +33,29 @@ public class PlayerMovement : Movement
 
             if (Input.GetKeyDown(KeyCode.C))
             {
+                if (this.optionsMenu.activeSelf)
+                {
+                    return;
+                }
+
                 if (!this.statSelecter.visible)
                 {
                     this.statSelecter.Activate();
+                    this.gameController.TogglePause();
+                }
+                else
+                {
+                    this.statSelecter.Deactivate();
+                    this.gameController.TogglePause();
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (!this.statSelecter.visible)
+                {
+                    this.optionsMenu.SetActive(!this.optionsMenu.activeSelf);
+                    this.gameController.TogglePause();
                 }
                 else
                 {

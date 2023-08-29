@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -33,5 +34,17 @@ public class GameController : MonoBehaviour
     private void ResumeGame()
     {
         this.playerCombat.canAttack = true;
+    }
+
+    public void BackToMenu()
+    {
+        // Save Logic
+        SceneManager.LoadScene("StartMenu");
+    }
+
+    public void QuitGame()
+    {
+        // Save Logic
+        Application.Quit();
     }
 }

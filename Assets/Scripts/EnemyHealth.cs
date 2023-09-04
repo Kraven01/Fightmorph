@@ -6,7 +6,6 @@ public class EnemyHealth : Health
 
     public override void Awake()
     {
-        this.maxHealth = 15;
         this.damageNumberColor = Color.white;
         this.playerStats = GameObject.Find("KnightPlayer").GetComponent<PlayerStats>();
         base.Awake();

@@ -287,12 +287,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338251b6f119bd844af408ee6eac0235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  healthbar: {fileID: 0}
+  animator: {fileID: 0}
+  baseHealth: 0
+  damageNumberColor: {r: 0, g: 0, b: 0, a: 0}
   damageNumberPrefab: {fileID: 409067859033820506, guid: c841e45d97cf8b542be3afdc753ab7dd,
     type: 3}
-  animator: {fileID: 0}
-  damageNumberColor: {r: 0, g: 0, b: 0, a: 0}
+  Healthbar: {fileID: 0}
+  maxHealth: 15
 --- !u!50 &2419963089743604391
 Rigidbody2D:
   serializedVersion: 4
@@ -464,13 +465,13 @@ MonoBehaviour:
   animator: {fileID: 0}
   attackPoint: {fileID: 0}
   attackRange: 0.5
+  canAttack: 1
+  cooldown: 0
+  dead: 0
   right: 1
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
-  cooldown: 0
-  canAttack: 1
-  dead: 0
   xRange: 0
   yRange: 0
   attackDamage: 3
@@ -486,16 +487,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127c92c8ebce0c144804aad34958f617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rb: {fileID: 0}
   animator: {fileID: 0}
-  movement: {x: 0, y: 0}
-  rotationValue: 0
   dead: 0
   flip: 0
-  viewRange: 20
-  healthbarTransform: {fileID: 0}
+  movement: {x: 0, y: 0}
+  moveSpeed: 5
+  rb: {fileID: 0}
+  rotationValue: 0
   healthbarRectTransform: {fileID: 0}
+  healthbarTransform: {fileID: 0}
+  viewRange: 20
 --- !u!212 &2419963089743604392
 SpriteRenderer:
   m_ObjectHideFlags: 0

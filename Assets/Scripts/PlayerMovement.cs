@@ -85,8 +85,6 @@ public class PlayerMovement : Movement
 
     public void SyncStats()
     {
-        Debug.Log(this.playerStats);
-        Debug.Log(this.playerStats.dexterity);
         this.moveSpeed = 5f + this.playerStats.dexterity;
     }
 }

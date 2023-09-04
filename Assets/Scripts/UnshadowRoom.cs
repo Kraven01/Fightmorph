@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class UnshadowRoom : MonoBehaviour
 {
+    [SerializeField] private GameObject laserEnemyPrefab;
     [SerializeField] private int numberOfEnemies;
 
     [SerializeField] private GameObject slimePrefab;
@@ -14,6 +15,11 @@ public class UnshadowRoom : MonoBehaviour
 
     private void Start()
     {
+        this.spawnLocation = this.transform.Find("spawnLocation")?.transform;
+        if (this.spawnLocation == null)
+        {
+            this.spawnLocation = this.transform.Find("SecondEntrance").transform.Find("spawnLocation").transform;
+        }
     }
 
     // Update is called once per frame
@@ -25,24 +31,22 @@ public class UnshadowRoom : MonoBehaviour
     {
         this.tileMapRenderer = this.GetComponent<TilemapRenderer>();
 
-        Instantiate(this.slimePrefab, this.spawnLocation.position - new Vector3(3f, 0f, 0f),
-            this.spawnLocation.rotation);
         for (int i = 0; i < this.numberOfEnemies; i++)
         {
-            Instantiate(this.slimePrefab, this.spawnLocation.position - new Vector3(2f * i, 0.5f * i, 0f),
-                this.spawnLocation.rotation);
+            float spawnDecider = Random.value;
+            if (spawnDecider < 0.5)
+            {
+                Instantiate(this.slimePrefab, this.spawnLocation.position - new Vector3(2f * i, 0.5f * i, 0f),
+                    this.spawnLocation.rotation);
+            }
+            else
+            {
+                Instantiate(this.laserEnemyPrefab, this.spawnLocation.position - new Vector3(2f * i, 0.5f * i, 0f),
+                    this.spawnLocation.rotation);
+            }
         }
 
-        if (this.tileMapRenderer == null)
-        {
-            this.tileMapRenderer = this.GetComponentInParent<TilemapRenderer>();
-            this.tileMapRenderer.enabled = false;
-            Destroy(this.transform.parent.gameObject);
-        }
-        else
-        {
-            this.tileMapRenderer.enabled = false;
-            Destroy(this.gameObject);
-        }
+        this.tileMapRenderer.enabled = false;
+        Destroy(this.gameObject);
     }
 }

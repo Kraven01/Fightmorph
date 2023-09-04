@@ -26,7 +26,7 @@ public class PlayerHealth : Health
     public void LevelUp()
     {
         this.currentHealth = this.maxHealth;
-        this.healthbar.SetHealth(this.currentHealth);
+        this.Healthbar.SetHealth(this.currentHealth);
         this.statSelecter.syncStats();
     }
 

@@ -2394,6 +2394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserEnemyPrefab: {fileID: 315834996069044356, guid: 10b877df4a382de4fa168d937fd3990f,
+    type: 3}
   numberOfEnemies: 2
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
@@ -2428,7 +2430,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1947372615}
   m_Father: {fileID: 113716297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2470,6 +2473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserEnemyPrefab: {fileID: 0}
   numberOfEnemies: 5
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
@@ -2541,7 +2545,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &43421614
 GameObject:
@@ -2713,7 +2717,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1436710505}
   m_Father: {fileID: 1072760792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2755,6 +2760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserEnemyPrefab: {fileID: 0}
   numberOfEnemies: 1
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
@@ -2919,7 +2925,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 13136431}
-  - {fileID: 1947372615}
   m_Father: {fileID: 1644205257}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6548,10 +6553,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfEnemies: 5
+  laserEnemyPrefab: {fileID: 315834996069044356, guid: 10b877df4a382de4fa168d937fd3990f,
+    type: 3}
+  numberOfEnemies: 2
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
-  spawnLocation: {fileID: 1947372615}
+  spawnLocation: {fileID: 1413597443}
   tileMapRenderer: {fileID: 0}
 --- !u!1 &144965115
 GameObject:
@@ -6951,13 +6958,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220378071}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 67.89, y: 2.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1308791014}
-  m_RootOrder: 1
+  m_Father: {fileID: 235780826}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &224752092
 GameObject:
@@ -7091,7 +7098,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 220378072}
   m_Father: {fileID: 1308791014}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7133,6 +7141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserEnemyPrefab: {fileID: 0}
   numberOfEnemies: 1
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
@@ -7612,7 +7621,7 @@ MonoBehaviour:
   damageNumberColor: {r: 0, g: 0, b: 0, a: 0}
   damageNumberPrefab: {fileID: 409067859033820506, guid: c841e45d97cf8b542be3afdc753ab7dd,
     type: 3}
-  healthbar: {fileID: 0}
+  Healthbar: {fileID: 0}
   maxHealth: 10
 --- !u!114 &298408996
 MonoBehaviour:
@@ -8196,12 +8205,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!4 &424163335 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 571439169978911415, guid: d172345e4328b164091aa53e3a77f878,
-    type: 3}
-  m_PrefabInstance: {fileID: 1502226722}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &463806166
 GameObject:
   m_ObjectHideFlags: 0
@@ -36955,6 +36958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserEnemyPrefab: {fileID: 315834996069044356, guid: 10b877df4a382de4fa168d937fd3990f,
+    type: 3}
   numberOfEnemies: 2
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
@@ -39175,10 +39180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfEnemies: 0
+  laserEnemyPrefab: {fileID: 315834996069044356, guid: 10b877df4a382de4fa168d937fd3990f,
+    type: 3}
+  numberOfEnemies: 2
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
-  spawnLocation: {fileID: 1966042765}
+  spawnLocation: {fileID: 1413597443}
   tileMapRenderer: {fileID: 0}
 --- !u!1 &488902880
 GameObject:
@@ -39970,7 +39977,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1205850724}
-  - {fileID: 728060090}
   m_Father: {fileID: 1644205257}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43207,10 +43213,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfEnemies: 5
+  laserEnemyPrefab: {fileID: 315834996069044356, guid: 10b877df4a382de4fa168d937fd3990f,
+    type: 3}
+  numberOfEnemies: 2
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
-  spawnLocation: {fileID: 728060090}
+  spawnLocation: {fileID: 1413597443}
   tileMapRenderer: {fileID: 0}
 --- !u!1 &676669853
 GameObject:
@@ -44777,13 +44785,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728060089}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 47, y: -13.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 662550734}
-  m_RootOrder: 1
+  m_Father: {fileID: 1205850724}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &737433667
 GameObject:
@@ -48512,7 +48520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfEnemies: 4
+  laserEnemyPrefab: {fileID: 315834996069044356, guid: 10b877df4a382de4fa168d937fd3990f,
+    type: 3}
+  numberOfEnemies: 2
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
   spawnLocation: {fileID: 43421615}
@@ -55712,7 +55722,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 82094009}
-  - {fileID: 1436710505}
   m_Father: {fileID: 1644205257}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58281,10 +58290,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfEnemies: 1
+  laserEnemyPrefab: {fileID: 315834996069044356, guid: 10b877df4a382de4fa168d937fd3990f,
+    type: 3}
+  numberOfEnemies: 2
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
-  spawnLocation: {fileID: 1436710505}
+  spawnLocation: {fileID: 1413597443}
   tileMapRenderer: {fileID: 0}
 --- !u!1 &1085164842
 GameObject:
@@ -58746,7 +58757,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 728060090}
   m_Father: {fileID: 662550734}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58788,6 +58800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserEnemyPrefab: {fileID: 0}
   numberOfEnemies: 5
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
@@ -59292,7 +59305,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 235780826}
-  - {fileID: 220378072}
   m_Father: {fileID: 1644205257}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -61803,10 +61815,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfEnemies: 1
+  laserEnemyPrefab: {fileID: 315834996069044356, guid: 10b877df4a382de4fa168d937fd3990f,
+    type: 3}
+  numberOfEnemies: 2
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
-  spawnLocation: {fileID: 220378072}
+  spawnLocation: {fileID: 1413597443}
   tileMapRenderer: {fileID: 0}
 --- !u!61 &1308791018
 BoxCollider2D:
@@ -62150,7 +62164,7 @@ GameObject:
   - component: {fileID: 1368181071}
   - component: {fileID: 1368181070}
   - component: {fileID: 1368181073}
-  - component: {fileID: 1368181072}
+  - component: {fileID: 1368181074}
   m_Layer: 0
   m_Name: 22
   m_TagString: Untagged
@@ -65379,23 +65393,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1368181072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368181068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfEnemies: 2
-  slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
-    type: 3}
-  spawnLocation: {fileID: 1454445733}
-  tileMapRenderer: {fileID: 0}
 --- !u!61 &1368181073
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65422,6 +65419,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21482849, y: 1.101759}
   m_EdgeRadius: 0
+--- !u!114 &1368181074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368181068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserEnemyPrefab: {fileID: 315834996069044356, guid: 10b877df4a382de4fa168d937fd3990f,
+    type: 3}
+  numberOfEnemies: 2
+  slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
+    type: 3}
+  spawnLocation: {fileID: 1413597443}
+  tileMapRenderer: {fileID: 0}
 --- !u!1 &1374544271
 GameObject:
   m_ObjectHideFlags: 0
@@ -65589,7 +65605,7 @@ Transform:
   - {fileID: 1942206752}
   - {fileID: 297862374}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1385575679
 SpriteRenderer:
@@ -65775,8 +65791,8 @@ MonoBehaviour:
   damageNumberColor: {r: 0, g: 0, b: 0, a: 0}
   damageNumberPrefab: {fileID: 409067859033820506, guid: c841e45d97cf8b542be3afdc753ab7dd,
     type: 3}
-  healthbar: {fileID: 0}
-  maxHealth: 10
+  Healthbar: {fileID: 0}
+  maxHealth: 50
   health: {fileID: 145795249}
   playerStats: {fileID: 0}
   statSelecter: {fileID: 634447382}
@@ -66210,13 +66226,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436710504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 40.83, y: -28.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1072760792}
-  m_RootOrder: 1
+  m_Father: {fileID: 82094009}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1454445732
 GameObject:
@@ -66410,100 +66426,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1001 &1502226722
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 14.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -14.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424518, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424519, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_Name
-      value: RangeBee
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169160424519, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169226358377, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169385797787, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439169978911368, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 571439170616699676, guid: d172345e4328b164091aa53e3a77f878,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d172345e4328b164091aa53e3a77f878, type: 3}
 --- !u!1 &1534310862
 GameObject:
   m_ObjectHideFlags: 0
@@ -67317,7 +67239,7 @@ RectTransform:
   - {fileID: 1715511211}
   - {fileID: 1580372174}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -67706,7 +67628,7 @@ Transform:
   - {fileID: 1072760792}
   - {fileID: 1368181069}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646341569
 GameObject:
@@ -68538,13 +68460,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832018571}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.97, y: -14.95, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.5999985, y: 6.3200006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1995221441}
-  m_RootOrder: 1
+  m_Father: {fileID: 1968654169}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1836977280
 GameObject:
@@ -68761,7 +68683,7 @@ MonoBehaviour:
   damageNumberColor: {r: 0, g: 0, b: 0, a: 0}
   damageNumberPrefab: {fileID: 409067859033820506, guid: c841e45d97cf8b542be3afdc753ab7dd,
     type: 3}
-  healthbar: {fileID: 0}
+  Healthbar: {fileID: 0}
   maxHealth: 10
 --- !u!95 &1836977287
 Animator:
@@ -69113,37 +69035,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870036161}
   m_CullTransparentMesh: 1
---- !u!1 &1872453634
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1872453635}
-  m_Layer: 10
-  m_Name: LaserSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1872453635
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872453634}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.263, y: 0.948, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 424163335}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886744022
 GameObject:
   m_ObjectHideFlags: 0
@@ -69639,26 +69530,6 @@ RectTransform:
   m_AnchoredPosition: {x: -8.32, y: -6.26}
   m_SizeDelta: {x: 827.981, y: 161.8968}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1947274977 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 571439169160424519, guid: d172345e4328b164091aa53e3a77f878,
-    type: 3}
-  m_PrefabInstance: {fileID: 1502226722}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1947274980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947274977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a366054aba2355469bbca45f0172654, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 692181377502061286, guid: 0169da09ea9e685468d7e60b54de4450, type: 3}
-  bulletPos: {fileID: 1872453635}
 --- !u!1 &1947372614
 GameObject:
   m_ObjectHideFlags: 0
@@ -69682,13 +69553,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947372614}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 26.55, y: -27.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 113716297}
-  m_RootOrder: 1
+  m_Father: {fileID: 13136431}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1966042764
 GameObject:
@@ -69750,7 +69621,8 @@ Transform:
   m_LocalPosition: {x: 22.37, y: -21.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1832018572}
   m_Father: {fileID: 1995221441}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -69766,6 +69638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserEnemyPrefab: {fileID: 0}
   numberOfEnemies: 1
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
@@ -69828,7 +69701,7 @@ Transform:
   - {fileID: 298408990}
   - {fileID: 1836977281}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1995221440
 GameObject:
@@ -69863,7 +69736,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1968654169}
-  - {fileID: 1832018572}
   m_Father: {fileID: 1644205257}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -71732,10 +71604,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd5fecb523c7c24eaa84bdd0b80aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfEnemies: 1
+  laserEnemyPrefab: {fileID: 315834996069044356, guid: 10b877df4a382de4fa168d937fd3990f,
+    type: 3}
+  numberOfEnemies: 2
   slimePrefab: {fileID: 2419963089743604412, guid: 053ef51f86f83ab4084c141d22cced2d,
     type: 3}
-  spawnLocation: {fileID: 1832018572}
+  spawnLocation: {fileID: 1413597443}
   tileMapRenderer: {fileID: 0}
 --- !u!61 &1995221445
 BoxCollider2D:
@@ -71907,7 +71781,7 @@ Transform:
   - {fileID: 737433668}
   - {fileID: 92572242}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033669706
 GameObject:

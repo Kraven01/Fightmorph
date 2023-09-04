@@ -30,7 +30,18 @@ public class PlayerCombat : Combat
 
     public override void dealDamage(Collider2D target)
     {
+        if (target.gameObject.CompareTag("Projectile"))
+        {
+            Destroy(target.gameObject);
+            return;
+        }
+
         EnemyHealth enemyHealth = target.GetComponent<EnemyHealth>();
+        if (enemyHealth == null)
+        {
+            enemyHealth = target.GetComponentInParent<EnemyHealth>();
+        }
+
         enemyHealth.takeDamage(this.attackDamage);
     }
 

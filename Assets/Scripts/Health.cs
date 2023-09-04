@@ -10,7 +10,7 @@ public abstract class Health : MonoBehaviour, IHealth
     public Color damageNumberColor;
 
     public GameObject damageNumberPrefab;
-    public HealthBar healthbar;
+    public HealthBar Healthbar;
     public int maxHealth;
 
     public virtual void takeDamage(int damage)
@@ -22,7 +22,7 @@ public abstract class Health : MonoBehaviour, IHealth
         damageNumber.SetDamageNumber(damage);
         damageNumber.SetColor(this.damageNumberColor);
         this.currentHealth = Math.Max(this.currentHealth - damage, 0);
-        this.healthbar.SetHealth(this.currentHealth);
+        this.Healthbar?.SetHealth(this.currentHealth);
         if (this.currentHealth <= 0)
         {
             this.die();
@@ -45,8 +45,8 @@ public abstract class Health : MonoBehaviour, IHealth
         this.GetComponent<Combat>().dead = true;
         this.GetComponent<Movement>().movement = new Vector2(0f, 0f);
         this.boxCollider.enabled = false;
-        Destroy(this.boxCollider.gameObject, 10f);
-        Destroy(this.healthbar.gameObject, 1f);
+        Destroy(this.boxCollider?.gameObject, 10f);
+        Destroy(this.Healthbar.gameObject, 1f);
     }
 
     public virtual void Awake()
@@ -54,7 +54,7 @@ public abstract class Health : MonoBehaviour, IHealth
         this.currentHealth = this.maxHealth;
         this.animator = this.GetComponent<Animator>();
         this.boxCollider = this.GetComponent<BoxCollider2D>();
-        this.healthbar = this.GetComponentInChildren<HealthBar>();
-        this.healthbar.SetMaxHealth(this.maxHealth);
+        this.Healthbar = this.GetComponentInChildren<HealthBar>();
+        this.Healthbar.SetMaxHealth(this.maxHealth);
     }
 }

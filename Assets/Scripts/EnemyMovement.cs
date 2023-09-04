@@ -6,6 +6,7 @@ public class EnemyMovement : Movement
     public RectTransform healthbarRectTransform;
 
     public Transform healthbarTransform;
+    protected float inverse = 1;
     private Transform target;
     public float viewRange;
 
@@ -28,7 +29,7 @@ public class EnemyMovement : Movement
         float distanceToPlayer = Vector3.Distance(this.transform.position, this.target.position);
         if (this.target && !this.dead && distanceToPlayer <= this.viewRange)
         {
-            Vector3 direction = (this.target.position - this.currentObject.position).normalized;
+            Vector3 direction = this.inverse * (this.target.position - this.currentObject.position).normalized;
             this.movement = direction;
             base.Update();
         }

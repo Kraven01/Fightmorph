@@ -16,7 +16,7 @@ public class PlayerMovement : Movement
         this.characterMenu = GameObject.Find("CharacterMenu");
         this.playerStats = this.GetComponent<PlayerStats>();
         this.statSelecter = this.characterMenu.GetComponent<StatSelecter>();
-        this.gameController = this.GetComponent<GameController>();
+        this.gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         this.optionsMenu.SetActive(false);
         this.statSelecter.Deactivate();
     }

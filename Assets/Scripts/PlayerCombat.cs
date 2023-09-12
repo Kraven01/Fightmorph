@@ -25,6 +25,14 @@ public class PlayerCombat : Combat
         {
             this.GetComponent<AudioPlayer>().PlayAttackSound();
             this.StartCoroutine(this.Attack());
+            return;
+        }
+
+        if (this.canAttack && Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log("Fireball");
+            this.GetComponent<AudioPlayer>().PlayFireCastSound();
+            this.StartCoroutine(this.ThrowFireball());
         }
     }
 

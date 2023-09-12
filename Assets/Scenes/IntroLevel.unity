@@ -2545,7 +2545,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &43421614
 GameObject:
@@ -60022,7 +60022,7 @@ GameObject:
   - component: {fileID: 580344964}
   m_Layer: 0
   m_Name: Surroundings
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88260,7 +88260,7 @@ Transform:
   - {fileID: 1942206752}
   - {fileID: 297862374}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1385575679
 SpriteRenderer:
@@ -88353,6 +88353,7 @@ MonoBehaviour:
   canAttack: 1
   cooldown: 1
   dead: 0
+  Fireball: {fileID: 406532879698859199, guid: 0be6da39bff91eb4181bee450681a849, type: 3}
   right: 1
   targetLayer:
     serializedVersion: 2
@@ -88464,6 +88465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSound: {fileID: 8300000, guid: 8c20d5628407f6b41be44a47542c636a, type: 3}
+  fireBallSound: {fileID: 8300000, guid: cc6699269b4c1d44ea1e860518b9bb73, type: 3}
 --- !u!82 &1385575687
 AudioSource:
   m_ObjectHideFlags: 0
@@ -89894,7 +89896,7 @@ RectTransform:
   - {fileID: 1715511211}
   - {fileID: 1580372174}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -90283,7 +90285,7 @@ Transform:
   - {fileID: 1072760792}
   - {fileID: 1368181069}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646341569
 GameObject:
@@ -91039,7 +91041,7 @@ GameObject:
   - component: {fileID: 1836977282}
   m_Layer: 10
   m_Name: Enemy_Left
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91074,6 +91076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSound: {fileID: 8300000, guid: 8c20d5628407f6b41be44a47542c636a, type: 3}
+  fireBallSound: {fileID: 0}
 --- !u!82 &1836977283
 AudioSource:
   m_ObjectHideFlags: 0
@@ -91188,6 +91191,7 @@ MonoBehaviour:
   canAttack: 1
   cooldown: 0
   dead: 0
+  Fireball: {fileID: 0}
   right: 1
   targetLayer:
     serializedVersion: 2
@@ -92251,7 +92255,7 @@ Transform:
   m_Children:
   - {fileID: 1836977281}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1995221440
 GameObject:
@@ -94332,7 +94336,7 @@ Transform:
   - {fileID: 92572242}
   - {fileID: 368013678}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033669706
 GameObject:

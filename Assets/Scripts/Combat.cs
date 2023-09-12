@@ -11,6 +11,7 @@ public abstract class Combat : MonoBehaviour
 
     public float cooldown;
     public bool dead = false;
+    public GameObject Fireball;
 
     public bool right = true;
 
@@ -43,6 +44,20 @@ public abstract class Combat : MonoBehaviour
         {
             this.dealDamage(target);
         }
+
+        yield return new WaitForSeconds(this.cooldown);
+        this.canAttack = true;
+    }
+
+    public virtual IEnumerator ThrowFireball()
+    {
+        this.canAttack = false;
+        this.animator.SetTrigger("fireball");
+        yield return new WaitForSeconds(0.5f);
+        // Summon Fireball projectile
+        GameObject summonFireball =
+            Instantiate(this.Fireball, this.attackPoint.transform.position, Quaternion.identity);
+
 
         yield return new WaitForSeconds(this.cooldown);
         this.canAttack = true;

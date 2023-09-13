@@ -7,7 +7,7 @@ public class FireBall : MonoBehaviour
     private Animator animator;
     private AudioPlayer audioPlayer;
     private AudioSource audioSource;
-    private Vector2 direction;
+    public Vector2 direction;
     private Vector3 initialPosition;
     private Rigidbody2D rb;
 
@@ -18,8 +18,6 @@ public class FireBall : MonoBehaviour
         this.animator = this.GetComponent<Animator>();
         this.audioSource = this.GetComponent<AudioSource>();
         this.audioPlayer = this.GetComponent<AudioPlayer>();
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        this.direction = (mousePosition - this.transform.position).normalized;
     }
 
     // Update is called once per frame
@@ -45,6 +43,7 @@ public class FireBall : MonoBehaviour
             other.gameObject.GetComponent<PlayerHealth>().takeDamage(spellDamage);
         }
 
+        Destroy(this.gameObject.GetComponent<BoxCollider2D>());
         Destroy(this.gameObject, 1f);
     }
 }

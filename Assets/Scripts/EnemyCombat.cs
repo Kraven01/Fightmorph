@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class EnemyCombat : Combat
 {
+    protected readonly float attackTriggerRange = 2f;
     public int attackDamage = 3;
-    private readonly float attackTriggerRange = 2f;
 
-    private Transform target;
+    protected Transform target;
 
     // Start is called before the first frame update
     public override void Start()

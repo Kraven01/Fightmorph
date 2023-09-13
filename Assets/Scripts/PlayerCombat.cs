@@ -30,7 +30,6 @@ public class PlayerCombat : Combat
 
         if (this.canAttack && Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Fireball");
             this.GetComponent<AudioPlayer>().PlayFireCastSound();
             this.StartCoroutine(this.ThrowFireball());
         }

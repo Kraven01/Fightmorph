@@ -7274,7 +7274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283531819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.95, y: -0.83, z: 0}
+  m_LocalPosition: {x: 1.222, y: -0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -59839,6 +59839,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -60008,6 +60009,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e1925711308d04a92a27ee39c36f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &580344962
 GameObject:
   m_ObjectHideFlags: 0
@@ -88235,7 +88248,6 @@ GameObject:
   - component: {fileID: 1385575687}
   - component: {fileID: 1385575686}
   - component: {fileID: 1385575688}
-  - component: {fileID: 1385575689}
   m_Layer: 9
   m_Name: KnightPlayer
   m_TagString: Player
@@ -88251,7 +88263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385575677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 81.76, y: -14.32, z: 0.3360369}
+  m_LocalPosition: {x: 94.55, y: -10.63, z: 0.3360369}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -88465,6 +88477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSound: {fileID: 8300000, guid: 8c20d5628407f6b41be44a47542c636a, type: 3}
+  explosionSound: {fileID: 0}
   fireBallSound: {fileID: 8300000, guid: cc6699269b4c1d44ea1e860518b9bb73, type: 3}
 --- !u!82 &1385575687
 AudioSource:
@@ -88578,18 +88591,6 @@ MonoBehaviour:
   levelText: {fileID: 2070822070}
   xpSlider: {fileID: 1376817851}
   xpText: {fileID: 1858187081}
---- !u!114 &1385575689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385575677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac66b4aae955e2c43bdc72347a657d77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1413597442
 GameObject:
   m_ObjectHideFlags: 0
@@ -89071,9 +89072,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1593897205}
-        m_TargetAssemblyTypeName: VolumeController, Assembly-CSharp
-        m_MethodName: SetSound
+      - m_Target: {fileID: 1957514895}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: set_EffectVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -89825,7 +89826,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1385575689}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -89848,7 +89849,6 @@ GameObject:
   - component: {fileID: 1593897203}
   - component: {fileID: 1593897202}
   - component: {fileID: 1593897204}
-  - component: {fileID: 1593897205}
   m_Layer: 0
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -89920,22 +89920,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1593897205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593897201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 149c9a984c27b2849981d879e7465868, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectMixer: {fileID: 1385575687}
-  effectSlider: {fileID: 1475075937}
-  musicMixer: {fileID: 519420033}
-  musicSlider: {fileID: 2085260132}
 --- !u!1 &1611823197
 GameObject:
   m_ObjectHideFlags: 0
@@ -90825,7 +90809,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1385575689}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
@@ -91036,9 +91020,9 @@ GameObject:
   - component: {fileID: 1836977287}
   - component: {fileID: 1836977286}
   - component: {fileID: 1836977285}
-  - component: {fileID: 1836977284}
   - component: {fileID: 1836977283}
   - component: {fileID: 1836977282}
+  - component: {fileID: 1836977291}
   m_Layer: 10
   m_Name: Enemy_Left
   m_TagString: Enemy
@@ -91076,7 +91060,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSound: {fileID: 8300000, guid: 8c20d5628407f6b41be44a47542c636a, type: 3}
-  fireBallSound: {fileID: 0}
+  explosionSound: {fileID: 0}
+  fireBallSound: {fileID: 8300000, guid: cc6699269b4c1d44ea1e860518b9bb73, type: 3}
 --- !u!82 &1836977283
 AudioSource:
   m_ObjectHideFlags: 0
@@ -91173,32 +91158,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1836977284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836977280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f2db166f908ada47a4052918caeaeb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  attackPoint: {fileID: 0}
-  attackRange: 0.5
-  canAttack: 1
-  cooldown: 0
-  dead: 0
-  Fireball: {fileID: 0}
-  right: 1
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  xRange: 0
-  yRange: 0
-  attackDamage: 3
 --- !u!114 &1836977285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91360,6 +91319,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1836977291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836977280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7c228c8f7c32c4c9fa8d75daed2ece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  attackPoint: {fileID: 283531820}
+  attackRange: 0
+  canAttack: 1
+  cooldown: 0
+  dead: 0
+  Fireball: {fileID: 406532879698859199, guid: 0be6da39bff91eb4181bee450681a849, type: 3}
+  right: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  xRange: 0
+  yRange: 0
+  attackDamage: 3
 --- !u!1 &1858187077
 GameObject:
   m_ObjectHideFlags: 0
@@ -92116,6 +92101,50 @@ Transform:
   m_Father: {fileID: 13136431}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1957514894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957514896}
+  - component: {fileID: 1957514895}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1957514895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957514894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac66b4aae955e2c43bdc72347a657d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1957514896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957514894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 84.261566, y: -14.41797, z: 0.28522447}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1966042764
 GameObject:
   m_ObjectHideFlags: 0
@@ -92249,7 +92278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983478076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 92.98, y: -12.49, z: 1.3427579}
+  m_LocalPosition: {x: 90.97, y: -12.49, z: 1.3427579}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -95057,9 +95086,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1593897205}
-        m_TargetAssemblyTypeName: VolumeController, Assembly-CSharp
-        m_MethodName: SetMusic
+      - m_Target: {fileID: 1957514895}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: set_MusicVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

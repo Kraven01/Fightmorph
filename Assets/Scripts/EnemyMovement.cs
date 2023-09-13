@@ -20,7 +20,7 @@ public class EnemyMovement : Movement
         this.moveSpeed = 2f;
         this.rotationValue = 180f;
         this.flip = 0f;
-        this.viewRange = 7f;
+        this.viewRange = 14f;
     }
 
     // Update is called once per frame

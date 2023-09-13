@@ -7,6 +7,7 @@ public abstract class Combat : MonoBehaviour
 
     public Transform attackPoint;
     public float attackRange;
+    protected AudioPlayer audioPlayer;
     public bool canAttack = true;
 
     public float cooldown;
@@ -25,6 +26,7 @@ public abstract class Combat : MonoBehaviour
     {
         this.attackPoint = this.transform.Find("attackPoint");
         this.animator = this.GetComponent<Animator>();
+        this.audioPlayer = this.GetComponent<AudioPlayer>();
     }
 
     // Update is called once per frame
@@ -57,8 +59,8 @@ public abstract class Combat : MonoBehaviour
         // Summon Fireball projectile
         GameObject summonFireball =
             Instantiate(this.Fireball, this.attackPoint.transform.position, Quaternion.identity);
-
-
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        summonFireball.GetComponent<FireBall>().direction = (mousePosition - this.transform.position).normalized;
         yield return new WaitForSeconds(this.cooldown);
         this.canAttack = true;
     }

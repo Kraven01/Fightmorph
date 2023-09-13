@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemyCombat : Combat
 {
-    protected readonly float attackTriggerRange = 2f;
     public int attackDamage = 3;
+    protected float attackTriggerRange = 2f;
 
     protected Transform target;
 
@@ -17,6 +17,7 @@ public class EnemyCombat : Combat
         this.cooldown = 2f;
         this.xRange = 1.2f;
         this.yRange = -0.5f;
+        this.attackTriggerRange = Vector3.Distance(this.transform.position, this.attackPoint.position) + 1f;
     }
 
     // Update is called once per frame

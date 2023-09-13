@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    private const int spellDamage = 2;
-    private readonly float fireBallSpeed = 4f;
+    private const int spellDamage = 5;
+    private readonly float fireBallSpeed = 6f;
     private Animator animator;
     private AudioPlayer audioPlayer;
     private AudioSource audioSource;
@@ -30,6 +30,11 @@ public class FireBall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Projectile"))
+        {
+            return;
+        }
+
         this.audioPlayer.PlayExplosionSound();
         this.direction = Vector2.zero;
         this.animator.SetTrigger("hit");

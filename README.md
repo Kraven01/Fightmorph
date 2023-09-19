@@ -11,7 +11,7 @@ A 2D game which is still in production.
 
 
 ## Used Assets:
-
+- https://arongranberg.com/astar/download
 - https://github.com/Brackeys/Health-Bar/tree/master
 - https://assetstore.unity.com/packages/audio/sound-fx/weapons/swordsoundpack-177824
 - https://assetstore.unity.com/packages/audio/music/sword-attack-music-pack-52081

@@ -11,12 +11,9 @@ public class EnemyCombat : Combat
     public override void Start()
     {
         base.Start();
-        this.attackRange = 0.5f;
         this.targetLayer = LayerMask.GetMask("Player");
         this.target = GameObject.Find("KnightPlayer").transform;
         this.cooldown = 2f;
-        this.xRange = 1.2f;
-        this.yRange = -0.5f;
         this.attackTriggerRange = Vector3.Distance(this.transform.position, this.attackPoint.position) + 1f;
     }
 
@@ -30,6 +27,15 @@ public class EnemyCombat : Combat
             this.StartCoroutine(this.Attack());
         }
     }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Vector3 parentPosition = this.attackPoint.transform.position;
+        Gizmos.DrawWireSphere(parentPosition + new Vector3(this.xRange, this.yRange, 0f), this.attackRange);
+    }
+
 
     public override void dealDamage(Collider2D target)
     {

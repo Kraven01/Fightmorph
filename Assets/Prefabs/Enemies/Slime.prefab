@@ -450,6 +450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSound: {fileID: 8300000, guid: 3d48b56190b3a3a4495d089271742ec3, type: 3}
+  explosionSound: {fileID: 0}
+  fireBallSound: {fileID: 0}
 --- !u!114 &2419963089743604394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,16 +465,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  attackPoint: {fileID: 0}
-  attackRange: 0.5
+  attackPoint: {fileID: 2419963088500178947}
+  attackRange: 0.3
   canAttack: 1
   cooldown: 0
   dead: 0
+  Fireball: {fileID: 0}
   right: 1
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
-  xRange: 0
+  xRange: 0.1
   yRange: 0
   attackDamage: 3
 --- !u!114 &2419963089743604395
@@ -494,6 +497,7 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 0}
   rotationValue: 0
+  canMove: 1
   healthbarRectTransform: {fileID: 0}
   healthbarTransform: {fileID: 0}
   viewRange: 20

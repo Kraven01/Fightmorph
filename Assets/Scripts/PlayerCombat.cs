@@ -11,9 +11,6 @@ public class PlayerCombat : Combat
         base.Start();
         this.targetLayer = LayerMask.GetMask("Enemies");
         this.cooldown = 1f;
-        this.attackRange = 0.5f;
-        this.xRange = 1.2f;
-        this.yRange = -0.5f;
         this.attackDamage = this.baseAttackDamage;
         this.playerStats = this.GetComponent<PlayerStats>();
     }
@@ -50,6 +47,13 @@ public class PlayerCombat : Combat
         }
 
         enemyHealth.takeDamage(this.attackDamage);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Vector3 parentPosition = this.attackPoint.parent.position;
+        Gizmos.DrawWireSphere(parentPosition + new Vector3(this.xRange, this.yRange, 0f), this.attackRange);
     }
 
     public override Collider2D[] computeTargets()

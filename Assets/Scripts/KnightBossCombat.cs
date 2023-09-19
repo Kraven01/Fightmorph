@@ -21,6 +21,7 @@ public class KnightBossCombat : EnemyCombat
         }
     }
 
+
     public IEnumerator BossMechanic(int numberFireball, float secondsToWait)
     {
         BoxCollider2D bossHitbox = this.GetComponent<BoxCollider2D>();

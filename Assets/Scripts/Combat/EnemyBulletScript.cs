@@ -7,11 +7,12 @@ public class EnemyBulletScript : Combat
     private readonly float maxScale = 2f;
     private float bulletTimer;
     private Vector3 direction;
+
+    private bool hitWall;
     private Vector3 initialPosition;
     private Vector3 initialScale;
     private GameObject player;
     private Rigidbody2D rb;
-
 
     // Start is called before the first frame update
     public override void Start()
@@ -29,12 +30,24 @@ public class EnemyBulletScript : Combat
     {
         this.bulletTimer += Time.deltaTime;
 
+        if (this.bulletTimer > 2f)
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (this.hitWall)
+        {
+            return;
+        }
+
+
         if (this.bulletTimer < 0.3f)
         {
             // Calculate rotation to follow player during the first 0.3 seconds
             float rot = Mathf.Atan2(this.direction.y, this.direction.x) * Mathf.Rad2Deg;
             this.transform.rotation = Quaternion.Euler(0, 0, rot);
         }
+
 
         // Calculate the new scale based on growth speed
         float newScaleX = Mathf.Min(this.transform.localScale.x + this.growthSpeed * Time.deltaTime, this.maxScale);
@@ -46,11 +59,6 @@ public class EnemyBulletScript : Combat
         Vector3 newPosition =
             this.initialPosition + this.direction.normalized * (newScaleX - this.initialScale.x) * 2.3f;
         this.transform.position = newPosition;
-
-        if (this.bulletTimer > 2f)
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     public override void dealDamage(Collider2D target)
@@ -69,6 +77,12 @@ public class EnemyBulletScript : Combat
         if (other.gameObject.CompareTag("Player"))
         {
             this.dealDamage(other);
+            return;
+        }
+
+        if (other.gameObject.CompareTag("Obstacles"))
+        {
+            this.hitWall = true;
         }
     }
 }

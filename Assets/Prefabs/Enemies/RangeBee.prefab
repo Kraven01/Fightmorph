@@ -98,6 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 315834994956661915}
   - component: {fileID: 315834994956661914}
+  - component: {fileID: 3068564300350493672}
   m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
@@ -172,6 +173,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3068564300350493672
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315834994956661912}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 749e0a4be6c48b14da14518a33070f16, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &315834995889084090
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +356,7 @@ MonoBehaviour:
   canAttack: 1
   cooldown: 0
   dead: 0
+  Fireball: {fileID: 0}
   right: 1
   targetLayer:
     serializedVersion: 2
@@ -342,6 +365,7 @@ MonoBehaviour:
   yRange: 0
   bullet: {fileID: 1202062215955942437, guid: 0169da09ea9e685468d7e60b54de4450, type: 3}
   bulletPos: {fileID: 315834996262665830}
+  chargeAnimator: {fileID: 3068564300350493672}
 --- !u!114 &315834996069044354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +404,7 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 315834996069044365}
   rotationValue: 0
+  canMove: 1
   healthbarRectTransform: {fileID: 6839114941320035772}
   healthbarTransform: {fileID: 6839114940638457413}
   viewRange: 0

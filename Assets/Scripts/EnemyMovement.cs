@@ -18,8 +18,12 @@ public class EnemyMovement : Movement
     {
         this.target = GameObject.Find("KnightPlayer").transform;
         this.currentObject = this.GetComponent<Transform>();
-        this.healthbarTransform = this.currentObject.Find("EnemyHealth");
-        this.healthbarRectTransform = this.healthbarTransform.GetComponent<RectTransform>();
+        if (this.healthbarRectTransform == null)
+        {
+            this.healthbarTransform = this.currentObject.Find("EnemyHealth");
+            this.healthbarRectTransform = this.healthbarTransform.GetComponent<RectTransform>();
+        }
+
         this.moveSpeed = 2f;
         this.rotationValue = 180f;
         this.flip = 0f;

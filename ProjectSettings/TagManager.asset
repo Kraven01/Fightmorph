@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Enemy
   - Boden
+  - Obstacles
   layers:
   - Default
   - TransparentFX
@@ -62,4 +63,7 @@ TagManager:
     locked: 0
   - name: UILayer
     uniqueID: 1456409939
+    locked: 0
+  - name: New Layer 7
+    uniqueID: 733861697
     locked: 0

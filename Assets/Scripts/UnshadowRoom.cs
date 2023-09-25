@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class UnshadowRoom : MonoBehaviour
 {
+    private BoxCollider2D boxCollider2D;
     [SerializeField] private GameObject laserEnemyPrefab;
     [SerializeField] private int numberOfEnemies;
 
@@ -16,6 +17,13 @@ public class UnshadowRoom : MonoBehaviour
     private void Start()
     {
         this.spawnLocation = this.transform.Find("spawnLocation")?.transform;
+        this.boxCollider2D = this.GetComponent<BoxCollider2D>();
+        this.tileMapRenderer = this.GetComponent<TilemapRenderer>();
+        if (this.tileMapRenderer != null)
+        {
+            this.tileMapRenderer.enabled = false;
+        }
+
         if (this.spawnLocation == null)
         {
             this.spawnLocation = this.transform.Find("SecondEntrance").transform.Find("spawnLocation").transform;
@@ -29,8 +37,6 @@ public class UnshadowRoom : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        this.tileMapRenderer = this.GetComponent<TilemapRenderer>();
-
         for (int i = 0; i < this.numberOfEnemies; i++)
         {
             float spawnDecider = Random.value;
@@ -46,7 +52,8 @@ public class UnshadowRoom : MonoBehaviour
             }
         }
 
-        this.tileMapRenderer.enabled = false;
+        // this.tileMapRenderer.enabled = false;
+
         Destroy(this.gameObject);
     }
 }

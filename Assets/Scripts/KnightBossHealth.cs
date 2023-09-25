@@ -1,12 +1,24 @@
+using UnityEngine;
+
 public class KnightBossHealth : EnemyHealth
 {
     private bool firstMechPlayed;
+    public TextMesh health;
     public KnightBossCombat knightBossCombat;
     private bool secondMechPlayed;
 
     public void Start()
     {
         this.knightBossCombat = this.GetComponent<KnightBossCombat>();
+        this.health.text = $"{this.currentHealth}/{this.maxHealth}";
+    }
+
+    public void FixedUpdate()
+    {
+        if (this.currentHealth > 0)
+        {
+            this.health.text = $"{this.currentHealth}/{this.maxHealth}";
+        }
     }
 
     public override void takeDamage(int damage)

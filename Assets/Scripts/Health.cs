@@ -54,7 +54,11 @@ public abstract class Health : MonoBehaviour, IHealth
         this.currentHealth = this.maxHealth;
         this.animator = this.GetComponent<Animator>();
         this.boxCollider = this.GetComponent<BoxCollider2D>();
-        this.Healthbar = this.GetComponentInChildren<HealthBar>();
+        if (this.Healthbar == null)
+        {
+            this.Healthbar = this.GetComponentInChildren<HealthBar>();
+        }
+
         this.Healthbar.SetMaxHealth(this.maxHealth);
     }
 }

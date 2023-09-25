@@ -72,6 +72,11 @@ public class PlayerCombat : Combat
         }
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+    }
+
     public void SyncStats()
     {
         this.attackDamage = this.baseAttackDamage + this.playerStats.strength;

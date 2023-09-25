@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : Movement
 {
+    private BoxCollider2D boxCollider;
     private GameObject characterMenu;
     private GameController gameController;
     [SerializeField] private GameObject optionsMenu;
@@ -18,6 +19,7 @@ public class PlayerMovement : Movement
         this.statSelecter = this.characterMenu.GetComponent<StatSelecter>();
         this.gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         this.optionsMenu.SetActive(false);
+        this.boxCollider = this.GetComponent<BoxCollider2D>();
         this.statSelecter.Deactivate();
     }
 

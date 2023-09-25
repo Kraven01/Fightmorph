@@ -34,4 +34,10 @@ public class PlayerHealth : Health
     {
         this.maxHealth = this.baseHealth + this.playerStats.vitality;
     }
+
+
+    private void OnParticleCollision(GameObject other)
+    {
+        this.takeDamage(3);
+    }
 }

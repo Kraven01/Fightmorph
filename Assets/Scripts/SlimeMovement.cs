@@ -5,6 +5,5 @@ public class SlimeMovement : EnemyMovement
     {
         base.Start();
         this.flip = 180f;
-        this.viewRange = 5f;
     }
 }
